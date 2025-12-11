@@ -2,11 +2,19 @@ import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "RoPhim" },
+    { name: "description", content: "Welcome to RoPhim!" },
   ];
 }
 
-export default function Home() {
-  return <></>;
+export async function clientLoader() {
+  // const res = await fetch("https://api.example.com");
+  // const movies = await res.json();
+  // return movies;
+  return { movies: [] };
+}
+
+export default function Home({ loaderData }: Route.ComponentProps) {
+  console.log(loaderData);
+  return <div>Home Content</div>;
 }

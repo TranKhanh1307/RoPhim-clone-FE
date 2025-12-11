@@ -45,6 +45,15 @@ export default function App() {
   return <Outlet />;
 }
 
+export function HydrateFallback() {
+  return (
+    <div id="loading-splash">
+      <div id="loading-splash-spinner" />
+      <p>Loading, please wait...</p>
+    </div>
+  );
+}
+
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "Oops!";
   let details = "An unexpected error occurred.";
