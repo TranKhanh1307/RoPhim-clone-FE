@@ -17,6 +17,7 @@ export default function Layout() {
       <header className="hidden items-center gap-4 bg-gray-400 p-3 md:flex">
         <Logo />
         <NavBar />
+        <SearchBar />
         <div className="flex-1"></div>
         <Notification />
       </header>
@@ -24,6 +25,32 @@ export default function Layout() {
         <Outlet />
       </main>
       <footer></footer>
+    </div>
+  );
+}
+
+function SearchBar() {
+  return (
+    <div className="relative text-white">
+      <input
+        type="text"
+        className="rounded-md border border-white px-8 py-2 placeholder:text-white"
+        placeholder="Tìm kiếm phim, thể loại..."
+      />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="pointer-events-none absolute top-1/2 left-2 size-5 -translate-y-1/2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+        />
+      </svg>
     </div>
   );
 }
@@ -43,7 +70,6 @@ function Notification() {
           clipRule="evenodd"
         />
       </svg>
-
       <div className="absolute -top-1 -right-1.5 flex min-w-6 items-center justify-center rounded-full bg-gray-400 px-1 text-xs text-white">
         3
       </div>
@@ -53,7 +79,7 @@ function Notification() {
 
 function Logo() {
   return (
-    <Link to={"/"}>
+    <Link to="/">
       <img src={logo} alt="RoPhim" width={150} height={150} />
     </Link>
   );
