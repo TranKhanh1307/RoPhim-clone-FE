@@ -16,5 +16,75 @@ export async function clientLoader() {
 
 export default function Home({ loaderData }: Route.ComponentProps) {
   console.log(loaderData);
-  return <div>Home Content</div>;
+  return (
+    <>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+      <h1>Home Content</h1>
+    </>
+  );
 }
