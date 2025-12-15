@@ -4,83 +4,122 @@ import {
   MagnifyingGlassIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
-import { useState } from "react";
+import { useState, memo } from "react";
 import { NavLink } from "react-router";
 import Logo from "@/components/common/logo";
 
 export default function Header() {
-  const [isMenuShow, setIsMenuShow] = useState(false);
-  const [isSearchBarShow, setIsSearchBarShow] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuShow(!isMenuShow);
-  const toggleSearchBar = () => setIsSearchBarShow(!isSearchBarShow);
+  const toggleMenu = () => setIsMenuOpen((v) => !v);
+  const toggleSearch = () => setIsSearchOpen((v) => !v);
 
   return (
     <header className="relative">
       <div className="flex min-h-18 items-center gap-4 bg-gray-400 p-3">
-        {!isSearchBarShow ? (
-          <div className="flex w-full items-center gap-4">
-            {isMenuShow && (
-              <XMarkIcon className="size-6 text-red-500" onClick={toggleMenu} />
-            )}
-            {!isMenuShow && (
-              <Bars3CenterLeftIcon
-                className="size-6 text-white"
-                onClick={toggleMenu}
-              />
-            )}
-            <Logo />
-            <div className="hidden w-full items-center gap-4 lg:flex">
-              <NavBar />
-              <SearchBar />
-              <div className="flex-1"></div>
-              <DownloadApp />
-            </div>
-            <div className="flex-1 lg:hidden"></div>
-            <MagnifyingGlassIcon
-              className="size-6 text-white lg:hidden"
-              onClick={toggleSearchBar}
-            />
-          </div>
+        {isSearchOpen ? (
+          <MobileSearch onClose={toggleSearch} />
         ) : (
-          <div className="flex w-full items-center gap-2">
-            <SearchBar />
-            <XMarkIcon
-              className="size-6 text-red-500"
-              onClick={toggleSearchBar}
-            />
-          </div>
+          <MainHeader
+            isMenuOpen={isMenuOpen}
+            onToggleMenu={toggleMenu}
+            onToggleSearch={toggleSearch}
+          />
         )}
       </div>
-      {isMenuShow && (
-        <div className="absolute w-full space-y-3 rounded-md bg-blue-300 p-2">
-          <DownloadApp />
-          <NavBar />
-        </div>
-      )}
+
+      {isMenuOpen && <MobileMenu />}
     </header>
   );
 }
 
-function DownloadApp() {
+/* ---------------- Sub Components ---------------- */
+
+const MainHeader = memo(function MainHeader({
+  isMenuOpen,
+  onToggleMenu,
+  onToggleSearch,
+}) {
+  return (
+    <div className="flex w-full items-center gap-4">
+      <MenuToggle isOpen={isMenuOpen} onClick={onToggleMenu} />
+
+      <Logo />
+
+      <div className="hidden w-full items-center gap-4 lg:flex">
+        <NavBar />
+        <SearchBar />
+        <div className="flex-1" />
+        <DownloadApp />
+      </div>
+
+      <div className="flex-1 lg:hidden" />
+
+      <MagnifyingGlassIcon
+        className="size-6 cursor-pointer text-white lg:hidden"
+        onClick={onToggleSearch}
+      />
+    </div>
+  );
+});
+
+function MenuToggle({ isOpen, onClick }) {
+  const Icon = isOpen ? XMarkIcon : Bars3CenterLeftIcon;
+
+  return (
+    <Icon
+      className={`size-6 cursor-pointer ${
+        isOpen ? "text-red-500" : "text-white lg:hidden"
+      }`}
+      onClick={onClick}
+    />
+  );
+}
+
+function MobileSearch({ onClose }) {
+  return (
+    <div className="flex w-full items-center gap-2">
+      <SearchBar autoFocus />
+      <XMarkIcon
+        className="size-6 cursor-pointer text-red-500"
+        onClick={onClose}
+      />
+    </div>
+  );
+}
+
+function MobileMenu() {
+  return (
+    <div className="absolute w-full space-y-3 rounded-md bg-blue-300 p-2 lg:hidden">
+      <DownloadApp />
+      <NavBar />
+    </div>
+  );
+}
+
+/* ---------------- Reusable UI ---------------- */
+
+const DownloadApp = memo(function DownloadApp() {
   return (
     <NavLink
-      to={"/download-app"}
+      to="/download-app"
       className="flex items-center gap-2 rounded-md bg-gray-100/25 p-2 text-white lg:w-40"
     >
-      <ComputerDesktopIcon className="size-8 text-white" />
+      <ComputerDesktopIcon className="size-8" />
       <div>
         <p>Tải ứng dụng</p>
         <p className="font-bold">RoPhim</p>
       </div>
     </NavLink>
   );
-}
+});
 
-function SearchBar() {
+function SearchBar({ autoFocus = false }) {
   return (
     <div className="relative w-full lg:w-fit">
       <input
+        autoFocus={autoFocus}
         type="text"
         placeholder="Tìm kiếm phim, diễn viên"
         className="w-full rounded-md border border-white px-2 py-2 text-white lg:px-10"
@@ -99,7 +138,7 @@ const NAVIGATIONS = [
   { name: "Thêm", href: "/more" },
 ];
 
-function NavBar() {
+const NavBar = memo(function NavBar() {
   return (
     <nav>
       <ul className="grid grid-cols-2 gap-3 text-white lg:flex">
@@ -111,4 +150,4 @@ function NavBar() {
       </ul>
     </nav>
   );
-}
+});
