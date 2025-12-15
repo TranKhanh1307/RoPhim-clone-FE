@@ -1,3 +1,4 @@
+import { HotMovies } from "@/components/home/hot-movies";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
@@ -18,73 +19,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
   console.log(loaderData);
   return (
     <>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
-      <h1>Home Content</h1>
+      <HotMovies />
     </>
   );
 }
