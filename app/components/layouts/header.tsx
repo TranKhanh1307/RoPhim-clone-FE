@@ -1,5 +1,6 @@
 import {
   Bars3CenterLeftIcon,
+  BellIcon,
   ComputerDesktopIcon,
   MagnifyingGlassIcon,
   XMarkIcon,
@@ -34,6 +35,7 @@ export default function Header() {
               <SearchBar />
               <div className="flex-1"></div>
               <DownloadApp />
+              <Notification />
             </div>
             <div className="flex-1 lg:hidden"></div>
             <MagnifyingGlassIcon
@@ -109,5 +111,16 @@ function NavBar() {
         ))}
       </ul>
     </nav>
+  );
+}
+
+function Notification() {
+  return (
+    <div className="relative rounded-full border border-white/30 bg-white/10 p-4">
+      <BellIcon className="h-5 w-5 text-white" />
+      <span className="absolute -top-1 -right-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-red-500 p-1 text-[10px] font-semibold text-white shadow">
+        99+
+      </span>
+    </div>
   );
 }
