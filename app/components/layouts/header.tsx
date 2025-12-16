@@ -20,12 +20,11 @@ export default function Header() {
       <div className="flex min-h-18 items-center gap-4 bg-gray-400 p-3">
         {!isSearchBarShow ? (
           <div className="flex w-full items-center gap-4">
-            {isMenuShow && (
+            {isMenuShow ? (
               <XMarkIcon className="size-6 text-red-500" onClick={toggleMenu} />
-            )}
-            {!isMenuShow && (
+            ) : (
               <Bars3CenterLeftIcon
-                className="size-6 text-white"
+                className="size-6 text-white lg:hidden"
                 onClick={toggleMenu}
               />
             )}
@@ -53,7 +52,7 @@ export default function Header() {
         )}
       </div>
       {isMenuShow && (
-        <div className="absolute w-full space-y-3 rounded-md bg-blue-300 p-2">
+        <div className="absolute inset-x-2 z-20 mt-2 space-y-3 rounded-md bg-blue-300 p-2">
           <DownloadApp />
           <NavBar />
         </div>

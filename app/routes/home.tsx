@@ -12,11 +12,10 @@ export async function clientLoader() {
   // const res = await fetch("https://api.example.com");
   // const movies = await res.json();
   // return movies;
-  return { movies: [] };
+  // return { movies: [] };
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
-  console.log(loaderData);
   return (
     <>
       <HotMovies />
