@@ -6,6 +6,7 @@ import {
   type CarouselApi,
   CarouselItem,
 } from "~/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 interface Movie {
   viName: string;
@@ -83,69 +84,89 @@ export function HotMovies() {
   }, [api]);
 
   return (
-    <Carousel
-      setApi={setApi}
-      opts={{
-        align: "start",
-        loop: true,
-      }}
-    >
-      <CarouselContent>
-        {HOT_MOVIES.map((movie) => (
-          <CarouselItem key={movie.id} className="h-60 pl-0 lg:h-144">
-            <Link
-              className="relative flex h-full items-center justify-center bg-cover bg-center lg:justify-start"
-              style={{ backgroundImage: `url(${movie.thumbnail})` }}
-              to={`${movie.id}`}
-            >
-              <div className="absolute inset-0 bg-black/50" />
-              <div className="z-10 flex flex-col items-center gap-2 lg:ml-16 lg:items-start">
-                <p className="text-xl font-bold text-white">{movie.viName}</p>
-                <p className="text-yellow-200">{movie.engName}</p>
-                <div className="flex items-center gap-2">
-                  <div className="rounded-md border border-yellow-300 p-2 text-xs">
-                    <span className="mr-1 text-yellow-300">IMDB</span>
-                    <span className="text-white">{movie.imdb}</span>
-                  </div>
-                  <div className="rounded-md bg-linear-to-r from-white to-yellow-400 p-2 text-xs font-bold">
-                    {movie.resolution}
-                  </div>
-                  <div className="rounded-md bg-white p-2 text-xs font-bold">
-                    {movie.ageRestricted}
-                  </div>
-                  <div className="rounded-md border border-white p-2 text-xs text-white">
-                    {movie.publishedYear}
-                  </div>
-                  <div className="rounded-md border border-white p-2 text-xs text-white">
-                    {movie.time}
-                  </div>
-                </div>
-                <div className="hidden lg:flex lg:gap-2">
-                  {movie.categories.map((category) => (
-                    <div
-                      key={category}
-                      className="rounded-md border border-white bg-white/10 p-2 text-xs text-white"
-                    >
-                      {category}
+    <div className="relative">
+      <Carousel
+        setApi={setApi}
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        plugins={[
+          Autoplay({
+            delay: 2000,
+          }),
+        ]}
+      >
+        <CarouselContent>
+          {HOT_MOVIES.map((movie) => (
+            <CarouselItem key={movie.id} className="h-60 pl-0 lg:h-144">
+              <Link
+                className="relative flex h-full items-center justify-center bg-cover bg-center lg:justify-start"
+                style={{ backgroundImage: `url(${movie.thumbnail})` }}
+                to={`${movie.id}`}
+              >
+                <div className="absolute inset-0 bg-black/50" />
+                <div className="z-10 flex flex-col items-center gap-2 lg:ml-16 lg:items-start">
+                  <p className="text-xl font-bold text-white">{movie.viName}</p>
+                  <p className="text-yellow-200">{movie.engName}</p>
+                  <div className="flex items-center gap-2">
+                    <div className="rounded-md border border-yellow-300 p-2 text-xs">
+                      <span className="mr-1 text-yellow-300">IMDB</span>
+                      <span className="text-white">{movie.imdb}</span>
                     </div>
-                  ))}
+                    <div className="rounded-md bg-linear-to-r from-white to-yellow-400 p-2 text-xs font-bold">
+                      {movie.resolution}
+                    </div>
+                    <div className="rounded-md bg-white p-2 text-xs font-bold">
+                      {movie.ageRestricted}
+                    </div>
+                    <div className="rounded-md border border-white p-2 text-xs text-white">
+                      {movie.publishedYear}
+                    </div>
+                    <div className="rounded-md border border-white p-2 text-xs text-white">
+                      {movie.time}
+                    </div>
+                  </div>
+                  <div className="hidden lg:flex lg:gap-2">
+                    {movie.categories.map((category) => (
+                      <div
+                        key={category}
+                        className="rounded-md border border-white bg-white/10 p-2 text-xs text-white"
+                      >
+                        {category}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </Link>
-          </CarouselItem>
+              </Link>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+        {HOT_MOVIES.map(({ thumbnail }, idx) => (
+          <CarouselIndicator
+            key={idx}
+            thumbnail={thumbnail}
+            onClick={() => {}}
+          />
         ))}
-        {/* {HOT_MOVIES.map(({ thumbnail }, idx) => (
-          <CarouselIndicator key={idx} thumbnail={thumbnail} />
-        ))} */}
-      </CarouselContent>
-    </Carousel>
+      </div>
+    </div>
   );
 }
 
-function CarouselIndicator({ thumbnail }: { thumbnail: string }) {
+function CarouselIndicator({
+  thumbnail,
+  onClick,
+}: {
+  thumbnail: string;
+  onClick: () => void;
+}) {
   return (
     <div
-      className="absolute"
+      onClick={onClick}
+      className="h-10 w-10 cursor-pointer rounded-full border-3 border-gray-400 bg-cover bg-center transition-all hover:border-white"
       style={{ backgroundImage: `url(${thumbnail})` }}
     ></div>
   );
