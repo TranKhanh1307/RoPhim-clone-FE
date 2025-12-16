@@ -116,7 +116,7 @@ function NavBar() {
 
 function Notification() {
   return (
-    <div className="relative rounded-full border border-white/30 bg-white/10 p-4">
+    <div className="relative cursor-pointer rounded-full border border-white/30 bg-white/10 p-4 transition-all hover:bg-white/20">
       <BellIcon className="h-5 w-5 text-white" />
       <span className="absolute -top-1 -right-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-red-500 p-1 text-[10px] font-semibold text-white shadow">
         99+
