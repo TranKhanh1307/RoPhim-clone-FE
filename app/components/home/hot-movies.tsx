@@ -35,8 +35,21 @@ const HOT_MOVIES: Movie[] = [
     thumbnail:
       "https://static.nutscdn.com/vimg/1920-0/951859ef2ec65a3be41fa36f156365b4.webp",
     id: 1,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
     categories: [
       "Chính Kịch",
       "Chiếu Rạp",
@@ -62,7 +75,7 @@ const HOT_MOVIES: Movie[] = [
       "https://www.comingsoon.net/wp-content/uploads/sites/3/2023/04/Transformers-rise-of-the-beasts-poster.jpg?w=1024",
     id: 2,
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Sau nhiều năm chờ đợi, Transformers: Rise of the Beasts ra mắt",
     categories: [
       "Chính Kịch",
       "Chiếu Rạp",
@@ -183,7 +196,7 @@ export function HotMovies() {
           >
             <Link
               to={`${movie.id}`}
-              className="z-10 flex h-full w-full items-center justify-center lg:mt-48 lg:items-start lg:justify-start"
+              className="z-10 flex h-full w-full items-center justify-center lg:items-start lg:justify-start lg:pt-24"
             >
               <div className="flex flex-col items-center gap-2 text-center lg:max-w-1/3 lg:items-start lg:pl-10 lg:text-left">
                 <p className="text-xl font-bold text-white">{movie.viName}</p>
@@ -215,9 +228,9 @@ export function HotMovies() {
                     </p>
                   ))}
                 </div>
-                <p className="line-clamp-3 hidden text-white lg:block">
-                  {movie.description}
-                </p>
+                <div className="hidden lg:block">
+                  <p className="line-clamp-3 text-white">{movie.description}</p>
+                </div>
               </div>
             </Link>
           </CarouselItem>
