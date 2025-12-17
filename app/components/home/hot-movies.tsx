@@ -64,7 +64,7 @@ const HOT_MOVIES: Movie[] = [
     ],
   },
   {
-    viName: "Người máy biến hình: Sự Trỗi dậy của quái thú",
+    viName: "Người máy biến hình: Quái thú trỗi dậy",
     engName: "Transformers: Rise of the Beasts",
     imdb: 6.2,
     resolution: "4K",
@@ -86,15 +86,14 @@ const HOT_MOVIES: Movie[] = [
     ],
   },
   {
-    viName: "Phi Vụ Thế Kỷ: Thoắt Ẩn Thoắt Hiện",
-    engName: "Now You See Me 3: Now You Don't",
+    viName: "Đại chiến thái bình dương",
+    engName: "Pacific Rim",
     imdb: 6.2,
     resolution: "4K",
     ageRestricted: "T16",
     publishedYear: "2025",
     time: "1h 52m",
-    thumbnail:
-      "https://static.nutscdn.com/vimg/1920-0/951859ef2ec65a3be41fa36f156365b4.webp",
+    thumbnail: "https://metiz.vn/media/blogs/12325.jpg",
     id: 3,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -112,15 +111,14 @@ const HOT_MOVIES: Movie[] = [
     ],
   },
   {
-    viName: "Người máy biến hình: Sự Trỗi dậy của quái thú",
-    engName: "Transformers: Rise of the Beasts",
+    viName: "Người nhện: Trở về nhà",
+    engName: "Spider-man: Homecoming",
     imdb: 6.2,
     resolution: "4K",
     ageRestricted: "T16",
     publishedYear: "2025",
     time: "1h 52m",
-    thumbnail:
-      "https://www.comingsoon.net/wp-content/uploads/sites/3/2023/04/Transformers-rise-of-the-beasts-poster.jpg?w=1024",
+    thumbnail: "https://rog.asus.com/media/169630374780.jpg",
     id: 4,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -134,15 +132,15 @@ const HOT_MOVIES: Movie[] = [
     ],
   },
   {
-    viName: "Người máy biến hình: Sự Trỗi dậy của quái thú",
-    engName: "Transformers: Rise of the Beasts",
+    viName: "Thợ săn quái vật",
+    engName: "The Witcher 3",
     imdb: 6.2,
     resolution: "4K",
     ageRestricted: "T16",
     publishedYear: "2025",
     time: "1h 52m",
     thumbnail:
-      "https://www.comingsoon.net/wp-content/uploads/sites/3/2023/04/Transformers-rise-of-the-beasts-poster.jpg?w=1024",
+      "https://www.thewitcher.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F1.4c59601c.jpg&w=3840&q=75",
     id: 5,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -156,6 +154,32 @@ const HOT_MOVIES: Movie[] = [
     ],
   },
 ];
+
+function CarouselIndicators({
+  thumbnails,
+  scrollTo,
+  current,
+}: {
+  thumbnails: string[];
+  scrollTo: (idx: number) => void;
+  current: number;
+}) {
+  return (
+    <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+      {thumbnails.map((thumbnail, idx) => (
+        <div
+          key={idx}
+          onClick={() => scrollTo(idx)}
+          className={cn(
+            "h-10 w-10 cursor-pointer rounded-full border-3 border-gray-400 bg-cover bg-center transition-all hover:border-white",
+            idx === current - 1 && "border-white",
+          )}
+          style={{ backgroundImage: `url(${thumbnail})` }}
+        ></div>
+      ))}
+    </div>
+  );
+}
 
 export function HotMovies() {
   const [api, setApi] = useState<CarouselApi>();
@@ -236,21 +260,11 @@ export function HotMovies() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
-        {HOT_MOVIES.map(({ thumbnail }, idx) => (
-          <div
-            key={idx}
-            onClick={() => {
-              setCurrent(idx + 1);
-            }}
-            className={cn(
-              "h-10 w-10 cursor-pointer rounded-full border-3 border-gray-400 bg-cover bg-center transition-all hover:border-white",
-              idx === current - 1 && "border-white",
-            )}
-            style={{ backgroundImage: `url(${thumbnail})` }}
-          ></div>
-        ))}
-      </div>
+      <CarouselIndicators
+        thumbnails={HOT_MOVIES.map((movie) => movie.thumbnail)}
+        scrollTo={(idx) => api?.scrollTo(idx)}
+        current={current}
+      />
     </Carousel>
   );
 }
