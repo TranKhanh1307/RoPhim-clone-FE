@@ -1,5 +1,6 @@
 import { HotMovies } from "@/components/home/hot-movies";
 import type { Route } from "./+types/home";
+import Topics from "@/components/home/topics";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -19,6 +20,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
   return (
     <>
       <HotMovies />
+      <Topics />
     </>
   );
 }

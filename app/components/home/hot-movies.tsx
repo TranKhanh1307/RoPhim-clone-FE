@@ -261,7 +261,7 @@ export function HotMovies() {
                   <p className="line-clamp-3 text-white">{movie.description}</p>
                 </div>
               </div>
-              <div className="absolute bottom-24 left-14 flex items-center gap-12">
+              <div className="absolute bottom-24 left-14 lg:flex items-center gap-12 hidden">
                 <div className="rounded-full bg-linear-to-r from-white to-yellow-400 p-4 transition-all hover:text-white">
                   <PlayIcon className="size-10" />
                 </div>

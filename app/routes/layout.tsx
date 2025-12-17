@@ -6,7 +6,7 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <main>
+      <main className="bg-blue-900/80">
         <Outlet />
       </main>
       <Footer />
