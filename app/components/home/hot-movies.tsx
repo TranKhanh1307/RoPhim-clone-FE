@@ -161,69 +161,68 @@ export function HotMovies() {
   }, [api]);
 
   return (
-    <div className="relative">
-      <Carousel
-        setApi={setApi}
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-        // plugins={[
-        //   Autoplay({
-        //     delay: 2000,
-        //   }),
-        // ]}
-      >
-        <CarouselContent>
-          {HOT_MOVIES.map((movie) => (
-            <CarouselItem
-              key={movie.id}
-              className="relative flex h-60 items-center justify-center bg-cover bg-center after:absolute after:inset-0 after:bg-black/40 lg:h-144 lg:justify-start"
-              style={{ backgroundImage: `url(${movie.thumbnail})` }}
+    <Carousel
+      className="relative"
+      setApi={setApi}
+      opts={{
+        align: "start",
+        loop: true,
+      }}
+      plugins={[
+        Autoplay({
+          delay: 2000,
+        }),
+      ]}
+    >
+      <CarouselContent>
+        {HOT_MOVIES.map((movie) => (
+          <CarouselItem
+            key={movie.id}
+            className="relative flex h-60 items-center justify-center bg-cover bg-center after:absolute after:inset-0 after:bg-black/40 lg:h-144 lg:justify-start"
+            style={{ backgroundImage: `url(${movie.thumbnail})` }}
+          >
+            <Link
+              to={`${movie.id}`}
+              className="z-10 flex h-full w-full items-center justify-center lg:mt-48 lg:items-start lg:justify-start"
             >
-              <Link
-                to={`${movie.id}`}
-                className="z-10 flex h-full w-full items-center justify-center lg:mt-48 lg:items-start lg:justify-start"
-              >
-                <div className="flex flex-col items-center gap-2 text-center lg:max-w-1/3 lg:items-start lg:pl-10 lg:text-left">
-                  <p className="text-xl font-bold text-white">{movie.viName}</p>
-                  <p className="text-yellow-300">{movie.engName}</p>
-                  <div className="flex items-center gap-2 text-xs">
-                    <p className="rounded-md border border-yellow-300 p-2 text-white before:mr-1 before:text-yellow-300 before:content-['IMDB']">
-                      {movie.imdb}
-                    </p>
-                    <p className="rounded-md bg-linear-to-r from-white to-yellow-400 p-2 font-bold">
-                      {movie.resolution}
-                    </p>
-                    <p className="rounded-md bg-white p-2 font-bold">
-                      {movie.ageRestricted}
-                    </p>
-                    <p className="rounded-md border border-white bg-white/10 p-2 text-white">
-                      {movie.publishedYear}
-                    </p>
-                    <p className="rounded-md border border-white bg-white/10 p-2 text-white">
-                      {movie.time}
-                    </p>
-                  </div>
-                  <div className="hidden flex-wrap items-center gap-2 text-xs lg:flex">
-                    {movie.categories.map((category, idx) => (
-                      <p
-                        key={idx}
-                        className="rounded-md border border-white bg-white/10 p-2 text-white"
-                      >
-                        {category}
-                      </p>
-                    ))}
-                  </div>
-                  <p className="line-clamp-3 hidden text-white lg:block">
-                    {movie.description}
+              <div className="flex flex-col items-center gap-2 text-center lg:max-w-1/3 lg:items-start lg:pl-10 lg:text-left">
+                <p className="text-xl font-bold text-white">{movie.viName}</p>
+                <p className="text-yellow-300">{movie.engName}</p>
+                <div className="flex items-center gap-2 text-xs">
+                  <p className="rounded-md border border-yellow-300 p-2 text-white before:mr-1 before:text-yellow-300 before:content-['IMDB']">
+                    {movie.imdb}
+                  </p>
+                  <p className="rounded-md bg-linear-to-r from-white to-yellow-400 p-2 font-bold">
+                    {movie.resolution}
+                  </p>
+                  <p className="rounded-md bg-white p-2 font-bold">
+                    {movie.ageRestricted}
+                  </p>
+                  <p className="rounded-md border border-white bg-white/10 p-2 text-white">
+                    {movie.publishedYear}
+                  </p>
+                  <p className="rounded-md border border-white bg-white/10 p-2 text-white">
+                    {movie.time}
                   </p>
                 </div>
-              </Link>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
+                <div className="hidden flex-wrap items-center gap-2 text-xs lg:flex">
+                  {movie.categories.map((category, idx) => (
+                    <p
+                      key={idx}
+                      className="rounded-md border border-white bg-white/10 p-2 text-white"
+                    >
+                      {category}
+                    </p>
+                  ))}
+                </div>
+                <p className="line-clamp-3 hidden text-white lg:block">
+                  {movie.description}
+                </p>
+              </div>
+            </Link>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
       <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
         {HOT_MOVIES.map(({ thumbnail }, idx) => (
           <div
@@ -239,6 +238,6 @@ export function HotMovies() {
           ></div>
         ))}
       </div>
-    </div>
+    </Carousel>
   );
 }
