@@ -8,6 +8,11 @@ import {
 } from "~/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { cn } from "@/lib/utils";
+import {
+  HeartIcon,
+  InformationCircleIcon,
+  PlayIcon,
+} from "@heroicons/react/24/solid";
 
 interface Movie {
   viName: string;
@@ -171,7 +176,7 @@ function CarouselIndicators({
           key={idx}
           onClick={() => scrollTo(idx)}
           className={cn(
-            "h-10 w-10 cursor-pointer rounded-full border-3 border-gray-400 bg-cover bg-center transition-all hover:border-white",
+            "h-10 w-10 cursor-pointer rounded-full border-4 border-gray-400 bg-cover bg-center transition-all hover:border-white lg:h-14 lg:w-20 lg:rounded-md",
             idx === current - 1 && "border-white",
           )}
           style={{ backgroundImage: `url(${thumbnail})` }}
@@ -254,6 +259,19 @@ export function HotMovies() {
                 </div>
                 <div className="hidden lg:block">
                   <p className="line-clamp-3 text-white">{movie.description}</p>
+                </div>
+              </div>
+              <div className="absolute bottom-24 left-14 flex items-center gap-12">
+                <div className="rounded-full bg-linear-to-r from-white to-yellow-400 p-4 transition-all hover:text-white">
+                  <PlayIcon className="size-10" />
+                </div>
+                <div className="flex rounded-full border-2 border-gray-200/25 text-white">
+                  <div className="rounded-l-full border-r border-gray-200/25 px-4 py-3 transition-all hover:bg-yellow-200">
+                    <HeartIcon className="size-8" />
+                  </div>
+                  <div className="rounded-r-full border-l border-gray-200/25 px-4 py-3 transition-all hover:bg-yellow-200">
+                    <InformationCircleIcon className="size-8" />
+                  </div>
                 </div>
               </div>
             </Link>
