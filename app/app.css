@@ -128,7 +128,18 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  section {
+    @apply px-4;
+  }
+}
+
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
