@@ -1,7 +1,6 @@
 import { formatTime } from "@/lib/utils";
 import { MOVIES } from "@/mocks/movies";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import MovieCard from "../common/movie-card";
 
 export default function WatchedMovies() {
   return (
@@ -10,9 +9,12 @@ export default function WatchedMovies() {
       <div className="scrollbar-hidden flex gap-4 overflow-x-auto">
         {MOVIES.map((movie) => (
           <div key={movie.id} className="shrink-0 basis-48 space-y-2">
-            <MovieCard className="relative h-72" thumbnail={movie.thumbnail}>
+            <div
+              className="relative h-72 rounded-md bg-cover bg-center"
+              style={{ backgroundImage: `url(${movie.thumbnail})` }}
+            >
               <XMarkIcon className="absolute top-2 right-2 size-6 rounded-md bg-white p-0.5" />
-            </MovieCard>
+            </div>
             <Progress progress={(movie.timeWatched / movie.time) * 100} />
             <p className="flex items-center justify-center gap-2">
               <span className="text-white">

@@ -3,6 +3,7 @@ import type { Route } from "./+types/home";
 import Topics from "@/components/home/topics";
 import WatchedMovies from "@/components/home/wactched-movies";
 import { NewMovies } from "@/components/home/new-movies";
+import TopMovies from "@/components/home/top-movies";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -25,6 +26,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
       <Topics />
       <WatchedMovies />
       <NewMovies />
+      <TopMovies />
     </>
   );
 }

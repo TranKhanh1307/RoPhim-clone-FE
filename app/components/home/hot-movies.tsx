@@ -5,7 +5,7 @@ import {
   CarouselContent,
   type CarouselApi,
   CarouselItem,
-} from "~/components/ui/carousel";
+} from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { cn, formatTime } from "@/lib/utils";
 import {

@@ -2,7 +2,24 @@ import { cn } from "@/lib/utils";
 import { MOVIES } from "@/mocks/movies";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router";
-import MovieCard from "../common/movie-card";
+
+const SECTIONS = [
+  {
+    title: "Phim Hàn Quốc mới",
+    to: "/korea",
+    fromColor: "[&>span]:from-purple-500",
+  },
+  {
+    title: "Phim Trung Quốc mới",
+    to: "/china",
+    fromColor: "[&>span]:from-yellow-500",
+  },
+  {
+    title: "Phim US-UK mới",
+    to: "/us-uk",
+    fromColor: "[&>span]:from-pink-500",
+  },
+];
 
 function Title({
   className,
@@ -26,54 +43,38 @@ function Title({
   );
 }
 
+function MovieRow() {
+  return (
+    <div className="scrollbar-hidden flex gap-2 overflow-x-scroll">
+      {MOVIES.map((movie) => (
+        <div key={movie.id} className="shrink-0 basis-52 space-y-2">
+          <div
+            className="h-32 rounded-md bg-cover bg-center"
+            style={{ backgroundImage: `url(${movie.thumbnail})` }}
+          />
+          <p className="line-clamp-1 text-center font-bold text-white">
+            {movie.viName}
+          </p>
+          <p className="line-clamp-1 text-center font-bold text-gray-400">
+            {movie.enName}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function NewMovies() {
   return (
-    <section className={cn("space-y-4 rounded-t-md bg-slate-400/25 py-4")}>
-      <div className="space-y-2">
-        <Title className="[&>span]:from-purple-500" to="/korea">
-          Phim Hàn Quốc mới
-        </Title>
-        <div className="scrollbar-hidden flex gap-4 overflow-x-scroll">
-          {MOVIES.map((movie) => (
-            <MovieCard
-              className="h-32 shrink-0 basis-52"
-              thumbnail={movie.thumbnail}
-            >
-              <></>
-            </MovieCard>
-          ))}
+    <section className="space-y-4 rounded-t-md bg-slate-400/25 py-4">
+      {SECTIONS.map((section) => (
+        <div key={section.to} className="space-y-4">
+          <Title to={section.to} className={section.fromColor}>
+            {section.title}
+          </Title>
+          <MovieRow />
         </div>
-      </div>
-      <div className="space-y-2">
-        <Title className="[&>span]:from-yellow-500" to={"/china"}>
-          Phim Trung Quốc mới
-        </Title>
-        <div className="scrollbar-hidden flex gap-4 overflow-x-scroll">
-          {MOVIES.map((movie) => (
-            <MovieCard
-              className="h-32 shrink-0 basis-52"
-              thumbnail={movie.thumbnail}
-            >
-              <></>
-            </MovieCard>
-          ))}
-        </div>
-      </div>
-      <div className="space-y-2">
-        <Title className="[&>span]:from-pink-500" to={"/us-uk"}>
-          Phim US-UK mới
-        </Title>
-        <div className="scrollbar-hidden flex gap-4 overflow-x-scroll">
-          {MOVIES.map((movie) => (
-            <MovieCard
-              className="h-32 shrink-0 basis-52"
-              thumbnail={movie.thumbnail}
-            >
-              <></>
-            </MovieCard>
-          ))}
-        </div>
-      </div>
+      ))}
     </section>
   );
 }

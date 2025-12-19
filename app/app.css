@@ -143,3 +143,7 @@ body {
     display: none;
   }
 }
+
+@utility clip-carousel-item {
+  clip-path: polygon(0% 0%, 15% 0, 100% 15%, 100% 100%, 0% 100%) inset(0% 20% 0% 0% round 40px) ;
+}
