@@ -212,4 +212,204 @@ export const MOVIES: Movie[] = [
       "Hài Hước",
     ],
   },
+  {
+    id: 6,
+    thumbnail:
+      "https://kenh14cdn.com/203336854389633024/2025/11/30/ngang641619c9-7838-4f16-9882-a4d7b492ec5f-17644832259911852191435-1764489119109-1764489127910898827003.jpg",
+    time: 95,
+    timeWatched: 50,
+    viName: "Phi vụ động trời",
+    enName: "Zootopia 2",
+    imdb: 6.2,
+    resolution: "1080p",
+    ageRestricted: "T16",
+    publishedYear: "2025",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+    categories: [
+      "Chính Kịch",
+      "Chiếu Rạp",
+      "Gay Cấn",
+      "Hình Sự",
+      "Bí Ẩn",
+      "Phiên Lưu",
+      "Tâm Lý",
+      "Hành Động",
+      "Tình Cảm",
+      "Hài Hước",
+    ],
+  },
+  {
+    id: 7,
+    thumbnail:
+      "https://vcdn1-giaitri.vnecdn.net/2022/04/28/Avatar-2-James-Cameron-5081-1651112580.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=fLP6RPQc__ojHJlQNSAIEQ",
+    time: 95,
+    timeWatched: 50,
+    viName: "Thế thân",
+    enName: "Avatar: The way of water",
+    imdb: 6.2,
+    resolution: "1080p",
+    ageRestricted: "T16",
+    publishedYear: "2025",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+    categories: [
+      "Chính Kịch",
+      "Chiếu Rạp",
+      "Gay Cấn",
+      "Hình Sự",
+      "Bí Ẩn",
+      "Phiên Lưu",
+      "Tâm Lý",
+      "Hành Động",
+      "Tình Cảm",
+      "Hài Hước",
+    ],
+  },
+  {
+    id: 8,
+    thumbnail:
+      "https://genk.mediacdn.vn/2018/5/10/photo-1-15259408473471421819303.jpeg",
+    time: 95,
+    timeWatched: 50,
+    viName: "Người sắt",
+    enName: "Iron Man",
+    imdb: 6.2,
+    resolution: "1080p",
+    ageRestricted: "T16",
+    publishedYear: "2025",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+    categories: [
+      "Chính Kịch",
+      "Chiếu Rạp",
+      "Gay Cấn",
+      "Hình Sự",
+      "Bí Ẩn",
+      "Phiên Lưu",
+      "Tâm Lý",
+      "Hành Động",
+      "Tình Cảm",
+      "Hài Hước",
+    ],
+  },
+  {
+    id: 9,
+    thumbnail:
+      "https://m.media-amazon.com/images/S/pv-target-images/87c3b82e3237b2f88b33c4627decd6f586dd3664f74bbcce7e9ef17c9a135e63._SX1080_FMjpg_.jpg",
+    time: 95,
+    timeWatched: 50,
+    viName: "Người dơi vs Siêu nhân",
+    enName: "Batman v Superman",
+    imdb: 6.2,
+    resolution: "1080p",
+    ageRestricted: "T16",
+    publishedYear: "2025",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+    categories: [
+      "Chính Kịch",
+      "Chiếu Rạp",
+      "Gay Cấn",
+      "Hình Sự",
+      "Bí Ẩn",
+      "Phiên Lưu",
+      "Tâm Lý",
+      "Hành Động",
+      "Tình Cảm",
+      "Hài Hước",
+    ],
+  },
+  {
+    id: 10,
+    thumbnail:
+      "https://blog.voiz.vn/wp-content/uploads/2022/08/Harry-P-2-game4v-1637895744-27.jpg",
+    time: 95,
+    timeWatched: 50,
+    viName: "Harry Potter và Hòn đá phù thủy",
+    enName: "Harry Potter and the Philosopher's Stone",
+    imdb: 6.2,
+    resolution: "1080p",
+    ageRestricted: "T16",
+    publishedYear: "2025",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+    categories: [
+      "Chính Kịch",
+      "Chiếu Rạp",
+      "Gay Cấn",
+      "Hình Sự",
+      "Bí Ẩn",
+      "Phiên Lưu",
+      "Tâm Lý",
+      "Hành Động",
+      "Tình Cảm",
+      "Hài Hước",
+    ],
+  },
 ];

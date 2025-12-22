@@ -17,7 +17,7 @@ export default function TopMovies() {
               to={`/movie/${movie.id}`}
               className="min-w-0 shrink-0 grow-0 basis-85"
             >
-              <CarouselItem className={cn(idx !== 0 && "pl-0")}>
+              <CarouselItem className={cn(idx !== 0)}>
                 <img
                   src={movie.thumbnail}
                   alt={movie.viName}

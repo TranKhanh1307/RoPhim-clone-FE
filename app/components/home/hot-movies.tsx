@@ -16,6 +16,9 @@ import {
 } from "@heroicons/react/24/solid";
 import { MOVIES } from "@/mocks/movies";
 
+const HOT_MOVIES_LIMIT = 5;
+const hotMovies = MOVIES.slice(0, HOT_MOVIES_LIMIT);
+
 function CarouselIndicators({
   thumbnails,
   scrollTo,
@@ -73,7 +76,7 @@ export function HotMovies() {
       ]}
     >
       <CarouselContent>
-        {MOVIES.map((movie) => (
+        {hotMovies.map((movie) => (
           <CarouselItem
             key={movie.id}
             className="relative flex h-60 items-center justify-center bg-cover bg-center after:absolute after:inset-0 after:bg-black/40 lg:h-144 lg:justify-start"
@@ -135,7 +138,7 @@ export function HotMovies() {
         ))}
       </CarouselContent>
       <CarouselIndicators
-        thumbnails={MOVIES.map((movie) => movie.thumbnail)}
+        thumbnails={hotMovies.map((movie) => movie.thumbnail)}
         scrollTo={(idx) => api?.scrollTo(idx)}
         current={current}
       />
