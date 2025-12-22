@@ -144,6 +144,10 @@ body {
   }
 }
 
-@utility clip-carousel-item {
-  clip-path: polygon(0% 0%, 15% 0, 100% 15%, 100% 100%, 0% 100%) inset(0% 20% 0% 0% round 40px) ;
+@utility clip-right {
+  clip-path: polygon(0% 0%, 15% 0, 100% 15%, 100% 100%, 0% 100%);
+}
+
+@utility clip-left {
+  clip-path: polygon(75% 0, 100% 0%, 100% 100%, 0 100%, 0 15%);
 }

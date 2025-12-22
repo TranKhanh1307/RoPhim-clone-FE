@@ -1,6 +1,7 @@
-import { formatTime } from "@/lib/utils";
+import { formatTime } from "@/utils/format";
 import { MOVIES } from "@/mocks/movies";
 import { XMarkIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-router";
 
 export default function WatchedMovies() {
   return (
@@ -8,11 +9,18 @@ export default function WatchedMovies() {
       <p className="text-xl font-bold text-white">Xem tiếp của bạn</p>
       <div className="scrollbar-hidden flex gap-4 overflow-x-auto">
         {MOVIES.map((movie) => (
-          <div key={movie.id} className="shrink-0 basis-48 space-y-2">
-            <div
-              className="relative h-72 rounded-md bg-cover bg-center"
-              style={{ backgroundImage: `url(${movie.thumbnail})` }}
-            >
+          <Link
+            key={movie.id}
+            className="shrink-0 basis-48 space-y-2"
+            to={`/movie/${movie.id}`}
+          >
+            <div className="relative">
+              <img
+                src={movie.thumbnail}
+                alt={movie.viName}
+                className="h-72 w-full rounded-md object-cover"
+              />
+
               <XMarkIcon className="absolute top-2 right-2 size-6 rounded-md bg-white p-0.5" />
             </div>
             <Progress progress={(movie.timeWatched / movie.time) * 100} />
@@ -28,7 +36,7 @@ export default function WatchedMovies() {
             <p className="line-clamp-1 text-center text-gray-400">
               {movie.enName}
             </p>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

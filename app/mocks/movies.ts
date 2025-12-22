@@ -1,4 +1,4 @@
-interface Movie {
+export interface Movie {
   viName: string;
   enName: string;
   imdb: number;

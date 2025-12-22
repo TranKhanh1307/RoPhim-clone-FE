@@ -7,7 +7,8 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { cn, formatTime } from "@/lib/utils";
+import { cn } from "@/utils/cn";
+import { formatTime } from "@/utils/format";
 import {
   HeartIcon,
   InformationCircleIcon,

@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import logo from "@/assets/logo.svg";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/cn";
 
 export default function Logo({ className }: { className?: string }) {
   return (

@@ -1,7 +1,9 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/cn";
 import { MOVIES } from "@/mocks/movies";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router";
+import ScrollArea from "../common/scroll-area";
+import MovieCard from "../common/movie-card";
 
 const SECTIONS = [
   {
@@ -45,22 +47,11 @@ function Title({
 
 function MovieRow() {
   return (
-    <div className="scrollbar-hidden flex gap-2 overflow-x-scroll">
+    <ScrollArea>
       {MOVIES.map((movie) => (
-        <div key={movie.id} className="shrink-0 basis-52 space-y-2">
-          <div
-            className="h-32 rounded-md bg-cover bg-center"
-            style={{ backgroundImage: `url(${movie.thumbnail})` }}
-          />
-          <p className="line-clamp-1 text-center font-bold text-white">
-            {movie.viName}
-          </p>
-          <p className="line-clamp-1 text-center font-bold text-gray-400">
-            {movie.enName}
-          </p>
-        </div>
+        <MovieCard key={movie.id} movie={movie} />
       ))}
-    </div>
+    </ScrollArea>
   );
 }
 
