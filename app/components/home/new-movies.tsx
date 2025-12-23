@@ -3,7 +3,7 @@ import { type Movie } from "@/mocks/movies";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router";
 import MovieCard from "@/components/common/movie-card";
-import HorizontalScroll from "@/components/common/horizontal-scroll";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 function Title({
   className,
@@ -48,11 +48,15 @@ export function NewMovies({
       <Title to={to} titleColor={titleColor}>
         {title}
       </Title>
-      <HorizontalScroll>
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} variant="horizontal" />
-        ))}
-      </HorizontalScroll>
+      <Carousel>
+        <CarouselContent>
+          {movies.map((movie) => (
+            <CarouselItem className="basis-60" key={movie.id}>
+              <MovieCard key={movie.id} movie={movie} variant="vertical" />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
     </section>
   );
 }

@@ -255,7 +255,7 @@ export const MOVIES: Movie[] = [
   {
     id: 7,
     thumbnail:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1c4bJkJDD7vdXAOC3B5hTLSsbuBw6zOqcrw&s",
+      "https://media-cdn-v2.laodong.vn/storage/newsportal/2025/12/23/1629826/Avatar.jpg",
     time: 95,
     timeWatched: 50,
     viName: "Thế thân",

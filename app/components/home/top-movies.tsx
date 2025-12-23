@@ -16,12 +16,8 @@ export default function TopMovies({
       <Carousel>
         <CarouselContent>
           {movies.map((movie, idx) => (
-            <Link
-              key={movie.id}
-              to={`/movie/${movie.id}`}
-              className="min-w-0 shrink-0 grow-0 basis-85"
-            >
-              <CarouselItem>
+            <CarouselItem className="basis-85" key={movie.id}>
+              <Link key={movie.id} to={`/movie/${movie.id}`}>
                 <div
                   className={cn(
                     "group relative h-136 bg-yellow-200",
@@ -52,8 +48,8 @@ export default function TopMovies({
                     <p className="line-clamp-1 text-gray-400">{movie.enName}</p>
                   </div>
                 </div>
-              </CarouselItem>
-            </Link>
+              </Link>
+            </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>

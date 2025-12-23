@@ -1,10 +1,24 @@
+import { memo } from "react";
+import { Link } from "react-router";
 import type { Movie } from "@/mocks/movies";
 import { cn } from "@/utils/cn";
-import { Link } from "react-router";
 
 type MovieCardVariant = "vertical" | "horizontal";
 
-export default function MovieCard({
+const VARIANT_STYLES = {
+  vertical: {
+    imgHeight: "h-80",
+    width: 208,
+    height: 320,
+  },
+  horizontal: {
+    imgHeight: "h-40",
+    width: 352,
+    height: 128,
+  },
+} as const;
+
+const MovieCard = memo(function MovieCard({
   movie,
   variant = "vertical",
   className,
@@ -13,30 +27,37 @@ export default function MovieCard({
   variant?: MovieCardVariant;
   className?: string;
 }) {
+  const v = VARIANT_STYLES[variant];
+
   return (
     <Link
       to={`/movie/${movie.id}`}
-      className={cn(
-        "shrink-0 space-y-2",
-        className,
-        variant === "vertical" ? "basis-32" : "basis-52",
-      )}
+      className={cn("group space-y-2", className)}
     >
-      <img
-        src={movie.thumbnail}
-        alt={movie.viName}
-        className={cn(
-          "w-full rounded-md object-cover object-center",
-          variant === "vertical" ? "h-52" : "h-32",
-        )}
-      />
+      <div className="relative transition-transform duration-300 ease-in-out group-hover:scale-95">
+        <img
+          src={movie.thumbnail}
+          alt={movie.viName}
+          width={v.width}
+          height={v.height}
+          loading="lazy"
+          className={cn(
+            "w-full rounded-md object-cover object-center",
+            v.imgHeight,
+          )}
+        />
+        <div className="absolute inset-0 rounded-md transition-colors duration-300 group-hover:bg-yellow-200/30" />
+      </div>
+
       <MovieName>{movie.viName}</MovieName>
       <MovieName className="text-gray-400">{movie.enName}</MovieName>
     </Link>
   );
-}
+});
 
-function MovieName({
+export default MovieCard;
+
+const MovieName = memo(function MovieName({
   children,
   className,
 }: {
@@ -48,4 +69,4 @@ function MovieName({
       {children}
     </p>
   );
-}
+});
