@@ -35,7 +35,7 @@ function CarouselIndicators({
           key={idx}
           onClick={() => scrollTo(idx)}
           className={cn(
-            "h-10 w-10 cursor-pointer rounded-full border-4 border-gray-400 bg-cover bg-center transition-all hover:border-white lg:h-14 lg:w-20 lg:rounded-md",
+            "h-10 w-10 cursor-pointer rounded-full border-4 border-gray-400 bg-cover bg-center transition-colors duration-300 ease-in-out hover:border-white lg:h-14 lg:w-20 lg:rounded-md",
             idx === current - 1 && "border-white",
           )}
           style={{ backgroundImage: `url(${thumbnail})` }}
@@ -121,7 +121,7 @@ export function HotMovies() {
                 </div>
               </div>
               <div className="absolute bottom-24 left-14 hidden items-center gap-12 lg:flex">
-                <div className="rounded-full bg-linear-to-r from-white to-yellow-400 p-4 transition-all hover:text-white">
+                <div className="rounded-full bg-linear-to-r from-white to-yellow-400 p-4 shadow-lg/50 shadow-yellow-400 transition-all hover:text-white">
                   <PlayIcon className="size-10" />
                 </div>
                 <div className="flex rounded-full border-2 border-gray-200/25 text-white">

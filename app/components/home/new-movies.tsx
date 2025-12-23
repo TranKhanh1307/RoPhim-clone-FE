@@ -2,24 +2,24 @@ import { cn } from "@/utils/cn";
 import { MOVIES } from "@/mocks/movies";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router";
-import ScrollArea from "../common/scroll-area";
-import MovieCard from "../common/movie-card";
+import MovieCard from "@/components/common/movie-card";
+import HorizontalScroll from "@/components/common/horizontal-scroll";
 
 const SECTIONS = [
   {
     title: "Phim Hàn Quốc mới",
     to: "/korea",
-    fromColor: "[&>span]:from-purple-500",
+    fromColor: "[&>a]:from-purple-500",
   },
   {
     title: "Phim Trung Quốc mới",
     to: "/china",
-    fromColor: "[&>span]:from-yellow-500",
+    fromColor: "[&>a]:from-yellow-500",
   },
   {
     title: "Phim US-UK mới",
     to: "/us-uk",
-    fromColor: "[&>span]:from-pink-500",
+    fromColor: "[&>a]:from-pink-500",
   },
 ];
 
@@ -33,25 +33,15 @@ function Title({
   className?: string;
 }) {
   return (
-    <Link
-      className={cn("flex items-center justify-between", className)}
-      to={to}
-    >
-      <span className="bg-linear-to-r via-white to-white bg-clip-text text-2xl font-extrabold text-transparent">
+    <div className={cn("flex items-center justify-between", className)}>
+      <Link
+        to={to}
+        className="bg-linear-to-r via-white to-white bg-clip-text text-2xl font-extrabold text-transparent"
+      >
         {children}
-      </span>
+      </Link>
       <ChevronRightIcon className="size-6 fill-white" />
-    </Link>
-  );
-}
-
-function MovieRow() {
-  return (
-    <ScrollArea>
-      {MOVIES.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
-    </ScrollArea>
+    </div>
   );
 }
 
@@ -63,7 +53,11 @@ export function NewMovies() {
           <Title to={section.to} className={section.fromColor}>
             {section.title}
           </Title>
-          <MovieRow />
+          <HorizontalScroll>
+            {MOVIES.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} variant="horizontal" />
+            ))}
+          </HorizontalScroll>
         </div>
       ))}
     </section>

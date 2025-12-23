@@ -2,12 +2,13 @@ import { formatTime } from "@/utils/format";
 import { MOVIES } from "@/mocks/movies";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router";
+import HorizontalScroll from "@/components/common/horizontal-scroll";
 
 export default function WatchedMovies() {
   return (
     <section className="space-y-4">
       <p className="text-xl font-bold text-white">Xem tiếp của bạn</p>
-      <div className="scrollbar-hidden flex gap-4 overflow-x-auto">
+      <HorizontalScroll className="gap-4">
         {MOVIES.map((movie) => (
           <Link
             key={movie.id}
@@ -20,7 +21,6 @@ export default function WatchedMovies() {
                 alt={movie.viName}
                 className="h-72 w-full rounded-md object-cover"
               />
-
               <XMarkIcon className="absolute top-2 right-2 size-6 rounded-md bg-white p-0.5" />
             </div>
             <Progress progress={(movie.timeWatched / movie.time) * 100} />
@@ -38,7 +38,7 @@ export default function WatchedMovies() {
             </p>
           </Link>
         ))}
-      </div>
+      </HorizontalScroll>
     </section>
   );
 }

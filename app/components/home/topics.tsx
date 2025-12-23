@@ -12,15 +12,15 @@ const TOPICS = [
 
 export default function Topics() {
   return (
-    <section className="space-y-4">
+    <section>
       <p className="text-xl font-bold text-white">Bạn đang quan tâm gì?</p>
-      <div className="scrollbar-hidden flex gap-4 overflow-x-scroll">
+      <div className="scrollbar-hidden flex gap-4 overflow-x-scroll pt-8">
         {TOPICS.map((topic) => (
           <Link
             key={topic.title}
             to={"/topic"}
             className={cn(
-              "flex shrink-0 basis-32 items-center rounded-md p-4 text-white lg:basis-48 lg:flex-col lg:items-start lg:justify-center lg:gap-2",
+              "flex shrink-0 basis-32 items-center rounded-md p-4 text-white transition-all duration-300 ease-in-out hover:-translate-y-5 active:-translate-y-5 lg:basis-48 lg:flex-col lg:items-start lg:justify-center lg:gap-2",
               topic.color,
             )}
           >

@@ -1,23 +1,51 @@
 import type { Movie } from "@/mocks/movies";
+import { cn } from "@/utils/cn";
+import { Link } from "react-router";
 
-function MovieCard({ movie }: { movie: Movie }) {
+type MovieCardVariant = "vertical" | "horizontal";
+
+export default function MovieCard({
+  movie,
+  variant = "vertical",
+  className,
+}: {
+  movie: Movie;
+  variant?: MovieCardVariant;
+  className?: string;
+}) {
   return (
-    <div key={movie.id} className="shrink-0 basis-52 space-y-2">
+    <Link
+      to={`/movie/${movie.id}`}
+      className={cn(
+        "shrink-0 space-y-2",
+        className,
+        variant === "vertical" ? "basis-32" : "basis-52",
+      )}
+    >
       <img
         src={movie.thumbnail}
         alt={movie.viName}
-        className="h-32 w-full rounded-md object-cover object-center"
-        // width={}
-        // height={}
+        className={cn(
+          "w-full rounded-md object-cover object-center",
+          variant === "vertical" ? "h-52" : "h-32",
+        )}
       />
-      <p className="line-clamp-1 text-center font-bold text-white">
-        {movie.viName}
-      </p>
-      <p className="line-clamp-1 text-center font-bold text-gray-400">
-        {movie.enName}
-      </p>
-    </div>
+      <MovieName>{movie.viName}</MovieName>
+      <MovieName className="text-gray-400">{movie.enName}</MovieName>
+    </Link>
   );
 }
 
-export default MovieCard;
+function MovieName({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <p className={cn("line-clamp-1 text-center text-sm text-white", className)}>
+      {children}
+    </p>
+  );
+}

@@ -17,15 +17,28 @@ export default function TopMovies() {
               to={`/movie/${movie.id}`}
               className="min-w-0 shrink-0 grow-0 basis-85"
             >
-              <CarouselItem className={cn(idx !== 0)}>
-                <img
-                  src={movie.thumbnail}
-                  alt={movie.viName}
+              <CarouselItem>
+                <div
                   className={cn(
-                    "relative h-136 rounded-2xl object-cover",
+                    "group relative h-136 bg-yellow-200",
                     idx % 2 === 0 ? "clip-right" : "clip-left",
                   )}
-                />
+                >
+                  <img
+                    src={movie.thumbnail}
+                    alt={movie.viName}
+                    className={cn(
+                      "h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-97 group-active:scale-97",
+                      idx % 2 === 0 ? "clip-right" : "clip-left",
+                    )}
+                  />
+                  <div
+                    className={cn(
+                      "absolute inset-0 bg-yellow-200/20 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 group-active:opacity-100",
+                      idx % 2 === 0 ? "clip-right" : "clip-left",
+                    )}
+                  />
+                </div>
                 <div className="mt-3 flex w-5/6 gap-4">
                   <p className="bg-linear-to-t from-yellow-400 to-white bg-clip-text text-3xl font-bold text-transparent italic">
                     {idx + 1}

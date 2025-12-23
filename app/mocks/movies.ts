@@ -255,7 +255,7 @@ export const MOVIES: Movie[] = [
   {
     id: 7,
     thumbnail:
-      "https://vcdn1-giaitri.vnecdn.net/2022/04/28/Avatar-2-James-Cameron-5081-1651112580.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=fLP6RPQc__ojHJlQNSAIEQ",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1c4bJkJDD7vdXAOC3B5hTLSsbuBw6zOqcrw&s",
     time: 95,
     timeWatched: 50,
     viName: "Thế thân",
@@ -375,7 +375,7 @@ export const MOVIES: Movie[] = [
   {
     id: 10,
     thumbnail:
-      "https://blog.voiz.vn/wp-content/uploads/2022/08/Harry-P-2-game4v-1637895744-27.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPgITmo4dcs4265JV-xY4gWjvjz1Vi7CA0Qw&s",
     time: 95,
     timeWatched: 50,
     viName: "Harry Potter và Hòn đá phù thủy",
