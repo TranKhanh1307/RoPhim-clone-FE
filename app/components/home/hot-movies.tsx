@@ -79,17 +79,16 @@ export function HotMovies() {
           <CarouselItem key={movie.id} className="pl-0">
             <Link
               to={`${movie.id}`}
-              className="relative flex h-60 items-center justify-center lg:h-144 lg:justify-start"
+              className="relative flex h-60 items-center justify-center after:absolute after:inset-0 after:-z-10 after:bg-black/40 lg:h-144 lg:justify-start"
             >
               <img
-                className="absolute -z-20 h-full w-full object-cover object-center"
+                className="absolute -z-20 w-full object-cover object-center"
                 src={movie.thumbnail}
                 alt={movie.viName}
-                width={200}
-                height={200}
+                width={350}
+                height={500}
                 loading="lazy"
               />
-              <div className="absolute inset-0 -z-10 bg-black/40"></div>
               <div className="flex flex-col items-center gap-2 text-center lg:max-w-1/3 lg:-translate-y-16 lg:items-start lg:pl-10 lg:text-left">
                 <p className="text-xl font-bold text-white">{movie.viName}</p>
                 <p className="text-yellow-300">{movie.enName}</p>

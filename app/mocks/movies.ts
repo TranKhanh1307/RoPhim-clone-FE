@@ -175,7 +175,7 @@ export const MOVIES: Movie[] = [
   {
     id: 5,
     thumbnail:
-      "https://www.thewitcher.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F1.4c59601c.jpg&w=3840&q=75",
+      "https://gamek.mediacdn.vn/133514250583805952/2025/12/8/photo-1765167876114-17651678771151707711567.png",
     time: 95,
     timeWatched: 50,
     viName: "Thợ săn quái vật",
@@ -255,7 +255,7 @@ export const MOVIES: Movie[] = [
   {
     id: 7,
     thumbnail:
-      "https://media-cdn-v2.laodong.vn/storage/newsportal/2025/12/23/1629826/Avatar.jpg",
+      "https://cdn.galaxycine.vn/media/2025/12/15/avatar-3-750_1765782295757.jpg",
     time: 95,
     timeWatched: 50,
     viName: "Thế thân",
