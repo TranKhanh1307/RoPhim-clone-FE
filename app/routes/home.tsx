@@ -4,6 +4,7 @@ import Topics from "@/components/home/topics";
 import WatchedMovies from "@/components/home/wactched-movies";
 import { NewMovies } from "@/components/home/new-movies";
 import TopMovies from "@/components/home/top-movies";
+import { MOVIES } from "@/mocks/movies";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -25,8 +26,40 @@ export default function Home({ loaderData }: Route.ComponentProps) {
       <HotMovies />
       <Topics />
       <WatchedMovies />
-      <NewMovies />
-      <TopMovies />
+      <div className="space-y-4 rounded-t-md bg-slate-400/25 py-4">
+        <NewMovies
+          title="Phim Hàn Quốc mới"
+          to="/korea"
+          titleColor="from-purple-500"
+          movies={MOVIES}
+        />
+        <NewMovies
+          title="Phim Trung Quốc mới"
+          to="/china"
+          titleColor="from-yellow-500"
+          movies={MOVIES}
+        />
+        <NewMovies
+          title="Phim US-UK mới"
+          to="/us-uk"
+          titleColor="from-pink-500"
+          movies={MOVIES}
+        />
+      </div>
+      <TopMovies
+        title={"Top 10 phim lẻ hôm nay"}
+        movies={MOVIES.slice(0, 10)}
+      />
+      <NewMovies
+        title="Mãn Nhãn với Phim Chiếu Rạp"
+        to="/us-uk"
+        titleColor="from-white"
+        movies={MOVIES.reverse()}
+      />
+      <TopMovies
+        title={"Top 10 phim bộ hôm nay"}
+        movies={MOVIES.slice(0, 10).reverse()}
+      />
     </>
   );
 }

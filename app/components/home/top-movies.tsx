@@ -1,17 +1,21 @@
 import { Link } from "react-router";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
-import { MOVIES } from "@/mocks/movies";
 import { cn } from "@/utils/cn";
+import type { Movie } from "@/mocks/movies";
 
-export default function TopMovies() {
+export default function TopMovies({
+  title,
+  movies,
+}: {
+  title: string;
+  movies: Movie[];
+}) {
   return (
     <section>
-      <p className="mb-4 text-2xl font-bold text-white">
-        Top 10 phim bộ hôm nay
-      </p>
+      <p className="mb-4 text-2xl font-bold text-white">{title}</p>
       <Carousel>
         <CarouselContent>
-          {MOVIES.map((movie, idx) => (
+          {movies.map((movie, idx) => (
             <Link
               key={movie.id}
               to={`/movie/${movie.id}`}
