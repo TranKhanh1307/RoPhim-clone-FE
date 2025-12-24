@@ -36,8 +36,8 @@ function CarouselIndicators({
           key={idx}
           onClick={() => scrollTo(idx)}
           className={cn(
-            "h-10 w-10 cursor-pointer rounded-full border-4 border-gray-400 bg-cover bg-center transition-colors duration-300 ease-in-out hover:border-white lg:h-14 lg:w-20 lg:rounded-md",
-            idx === current - 1 && "border-white",
+            "h-10 w-10 cursor-pointer rounded-full border-4 border-gray-400 bg-cover bg-center transition-colors duration-300 ease-in-out hover:border-yellow-500 lg:h-14 lg:w-20 lg:rounded-md",
+            idx === current - 1 && "border-yellow-500",
           )}
           style={{ backgroundImage: `url(${thumbnail})` }}
         ></div>
