@@ -43,9 +43,8 @@ export default function WatchedMovies() {
 
 function Progress({ progress }: { progress: number }) {
   return (
-    <div
-      className="relative mx-auto h-1.5 w-9/10 bg-gray-400 after:absolute after:h-full after:w-(--progress) after:bg-yellow-400"
-      style={{ ["--progress" as any]: `${progress}%` }}
-    />
+    <div className="relative mx-auto h-1.5 w-9/10 bg-gray-400">
+      <div className="h-full bg-yellow-400" style={{ width: `${progress}%` }} />
+    </div>
   );
 }

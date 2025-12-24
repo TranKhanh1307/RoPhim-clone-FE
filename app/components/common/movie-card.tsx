@@ -37,7 +37,7 @@ const MovieCard = memo(function MovieCard({
   );
 });
 
-const MovieName = memo(function MovieName({
+function MovieName({
   children,
   className,
 }: {
@@ -49,9 +49,9 @@ const MovieName = memo(function MovieName({
       {children}
     </p>
   );
-});
+}
 
-function CardThumbnail({
+const CardThumbnail = memo(function CardThumbnail({
   url,
   alt,
   variant = "vertical",
@@ -85,6 +85,26 @@ function CardThumbnail({
       {children}
     </div>
   );
+});
+
+function ThumbBadges({ isSubbed, isDubbed }: Pick<Movie, "isSubbed" | "isDubbed">) {
+  if (!isSubbed && !isDubbed) return null;
+
+  return (
+    <div className="absolute bottom-2 left-2 space-y-1 text-xs text-white">
+      {isSubbed && (
+        <p className="w-fit rounded-full bg-gray-400 px-2 py-0.5">
+          P.Đề
+        </p>
+      )}
+      {isDubbed && (
+        <p className="w-fit rounded-full bg-green-600 px-2 py-0.5">
+          T.Minh
+        </p>
+      )}
+    </div>
+  );
 }
 
-export { MovieCard, MovieName, CardThumbnail };
+
+export { MovieCard, MovieName, CardThumbnail, ThumbBadges };
