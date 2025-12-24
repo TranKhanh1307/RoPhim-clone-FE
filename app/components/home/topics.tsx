@@ -25,7 +25,9 @@ export default function Topics() {
             )}
           >
             <p className="font-bold lg:text-xl">{topic.title}</p>
-            <p className="hidden lg:block">Xem chủ đề {">"}</p>
+            <p className="hidden after:ml-2 after:content-['>'] lg:block">
+              Xem chủ đề
+            </p>
           </Link>
         ))}
       </div>

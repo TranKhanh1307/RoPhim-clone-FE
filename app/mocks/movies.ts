@@ -11,6 +11,8 @@ export interface Movie {
   id: number;
   description: string;
   categories: string[];
+  isSubbed: boolean;
+  isDubbed: boolean;
 }
 
 export const MOVIES: Movie[] = [
@@ -53,6 +55,8 @@ export const MOVIES: Movie[] = [
       "Tình Cảm",
       "Hài Hước",
     ],
+    isSubbed: true,
+    isDubbed: true,
   },
   {
     id: 2,
@@ -92,6 +96,8 @@ export const MOVIES: Movie[] = [
       "Tình Cảm",
       "Hài Hước",
     ],
+    isSubbed: true,
+    isDubbed: false,
   },
   {
     id: 3,
@@ -131,6 +137,8 @@ export const MOVIES: Movie[] = [
       "Tình Cảm",
       "Hài Hước",
     ],
+    isSubbed: true,
+    isDubbed: false,
   },
   {
     id: 4,
@@ -171,6 +179,8 @@ export const MOVIES: Movie[] = [
       "Tình Cảm",
       "Hài Hước",
     ],
+    isSubbed: true,
+    isDubbed: true,
   },
   {
     id: 5,
@@ -211,6 +221,8 @@ export const MOVIES: Movie[] = [
       "Tình Cảm",
       "Hài Hước",
     ],
+    isSubbed: true,
+    isDubbed: true,
   },
   {
     id: 6,
@@ -251,6 +263,8 @@ export const MOVIES: Movie[] = [
       "Tình Cảm",
       "Hài Hước",
     ],
+    isSubbed: true,
+    isDubbed: true,
   },
   {
     id: 7,
@@ -291,6 +305,8 @@ export const MOVIES: Movie[] = [
       "Tình Cảm",
       "Hài Hước",
     ],
+    isSubbed: true,
+    isDubbed: true,
   },
   {
     id: 8,
@@ -331,6 +347,8 @@ export const MOVIES: Movie[] = [
       "Tình Cảm",
       "Hài Hước",
     ],
+    isSubbed: true,
+    isDubbed: true,
   },
   {
     id: 9,
@@ -371,6 +389,8 @@ export const MOVIES: Movie[] = [
       "Tình Cảm",
       "Hài Hước",
     ],
+    isSubbed: true,
+    isDubbed: true,
   },
   {
     id: 10,
@@ -411,5 +431,7 @@ export const MOVIES: Movie[] = [
       "Tình Cảm",
       "Hài Hước",
     ],
+    isSubbed: true,
+    isDubbed: true,
   },
 ];

@@ -20,42 +20,22 @@ const VARIANT_STYLES = {
 
 const MovieCard = memo(function MovieCard({
   movie,
-  variant = "vertical",
   className,
+  children,
 }: {
   movie: Movie;
-  variant?: MovieCardVariant;
   className?: string;
+  children: React.ReactNode;
 }) {
-  const v = VARIANT_STYLES[variant];
-
   return (
     <Link
       to={`/movie/${movie.id}`}
       className={cn("group space-y-2", className)}
     >
-      <div className="relative transition-transform duration-300 ease-in-out group-hover:scale-95">
-        <img
-          src={movie.thumbnail}
-          alt={movie.viName}
-          width={v.width}
-          height={v.height}
-          loading="lazy"
-          className={cn(
-            "w-full rounded-md object-cover object-center",
-            v.imgHeight,
-          )}
-        />
-        <div className="absolute inset-0 rounded-md transition-colors duration-300 group-hover:bg-yellow-200/30" />
-      </div>
-
-      <MovieName>{movie.viName}</MovieName>
-      <MovieName className="text-gray-400">{movie.enName}</MovieName>
+      {children}
     </Link>
   );
 });
-
-export default MovieCard;
 
 const MovieName = memo(function MovieName({
   children,
@@ -70,3 +50,41 @@ const MovieName = memo(function MovieName({
     </p>
   );
 });
+
+function CardThumbnail({
+  url,
+  alt,
+  variant = "vertical",
+  className,
+  children,
+}: {
+  url: string;
+  alt: string;
+  variant?: MovieCardVariant;
+  className?: string;
+  children?: React.ReactNode;
+}) {
+  const v = VARIANT_STYLES[variant];
+  return (
+    <div
+      className={cn(
+        "relative transition-transform duration-300 ease-in-out group-hover:scale-95",
+        v.imgHeight,
+        className,
+      )}
+    >
+      <img
+        src={url}
+        alt={alt}
+        width={v.width}
+        height={v.height}
+        loading="lazy"
+        className="h-full w-full rounded-md object-cover object-center"
+      />
+      <div className="absolute inset-0 rounded-md transition-colors duration-300 group-hover:bg-yellow-200/30" />
+      {children}
+    </div>
+  );
+}
+
+export { MovieCard, MovieName, CardThumbnail };

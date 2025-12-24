@@ -2,9 +2,10 @@ import { HotMovies } from "@/components/home/hot-movies";
 import type { Route } from "./+types/home";
 import Topics from "@/components/home/topics";
 import WatchedMovies from "@/components/home/wactched-movies";
-import { NewMovies } from "@/components/home/new-movies";
 import TopMovies from "@/components/home/top-movies";
 import { MOVIES } from "@/mocks/movies";
+import { UpcomingMovies } from "@/components/home/upcoming-movies";
+import { MovieList } from "@/components/home/movie-list";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -28,30 +29,33 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         <Topics />
         <WatchedMovies />
         <div className="space-y-4 rounded-md bg-slate-400/25 py-4">
-          <NewMovies
+          <MovieList
             title="Phim Hàn Quốc mới"
             to="/korea"
             titleColor="from-purple-500"
             movies={MOVIES}
+            cardVariant="horizontal"
           />
-          <NewMovies
+          <MovieList
             title="Phim Trung Quốc mới"
             to="/china"
             titleColor="from-yellow-500"
             movies={MOVIES}
+            cardVariant="horizontal"
           />
-          <NewMovies
+          <MovieList
             title="Phim US-UK mới"
             to="/us-uk"
             titleColor="from-pink-500"
             movies={MOVIES}
+            cardVariant="horizontal"
           />
         </div>
         <TopMovies
           title={"Top 10 phim lẻ hôm nay"}
           movies={MOVIES.slice(0, 10)}
         />
-        <NewMovies
+        <MovieList
           title="Mãn Nhãn với Phim Chiếu Rạp"
           to="/us-uk"
           titleColor="from-white"
@@ -60,6 +64,13 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         <TopMovies
           title={"Top 10 phim bộ hôm nay"}
           movies={MOVIES.slice(0, 10).reverse()}
+        />
+        <UpcomingMovies
+          title="Phim Sắp Tới Trên Rổ"
+          to="/upcoming"
+          titleColor="from-white"
+          movies={MOVIES}
+          cardVariant="horizontal"
         />
       </div>
     </>
