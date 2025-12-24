@@ -4,7 +4,7 @@ import {
   MovieCard,
   MovieName,
 } from "@/components/common/movie-card";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Title from "@/components/common/section-title";
 
 export function UpcomingMovies({

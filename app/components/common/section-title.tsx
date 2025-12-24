@@ -24,7 +24,9 @@ export default function Title({
       >
         {children}
       </Link>
-      <ChevronRightIcon className="size-6 fill-white" />
+      <div className="rounded-full p-1 outline outline-white transition-colors duration-300 ease-in-out hover:fill-yellow-400">
+        <ChevronRightIcon className="size-5 fill-white" />
+      </div>
     </div>
   );
 }

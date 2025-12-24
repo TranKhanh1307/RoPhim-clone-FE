@@ -15,6 +15,7 @@ import {
   PlayIcon,
 } from "@heroicons/react/24/solid";
 import { MOVIES } from "@/mocks/movies";
+import Fade from "embla-carousel-fade";
 
 const HOT_MOVIES_LIMIT = 5;
 const hotMovies = MOVIES.slice(0, HOT_MOVIES_LIMIT);
@@ -70,8 +71,10 @@ export function HotMovies() {
       }}
       plugins={[
         Autoplay({
-          delay: 4000,
+          delay: 3000,
+          stopOnInteraction: false,
         }),
+        Fade(),
       ]}
     >
       <CarouselContent>
@@ -79,17 +82,17 @@ export function HotMovies() {
           <CarouselItem key={movie.id} className="pl-0">
             <Link
               to={`${movie.id}`}
-              className="relative flex h-60 items-center justify-center after:absolute after:inset-0 after:-z-10 after:bg-black/40 lg:h-144 lg:justify-start"
+              className="relative flex h-60 items-center justify-center after:absolute after:inset-0 after:bg-black/40 lg:h-144 lg:justify-start"
             >
               <img
-                className="absolute -z-20 w-full object-cover object-center"
+                className="absolute -z-10 w-full object-cover object-center"
                 src={movie.thumbnail}
                 alt={movie.viName}
                 width={350}
                 height={500}
                 loading="lazy"
               />
-              <div className="flex flex-col items-center gap-2 text-center lg:max-w-1/3 lg:-translate-y-16 lg:items-start lg:pl-10 lg:text-left">
+              <div className="z-10 flex flex-col items-center gap-2 text-center lg:max-w-1/3 lg:-translate-y-16 lg:items-start lg:pl-10 lg:text-left">
                 <p className="text-xl font-bold text-white">{movie.viName}</p>
                 <p className="text-yellow-300">{movie.enName}</p>
                 <div className="flex items-center gap-2 text-xs">
@@ -123,16 +126,21 @@ export function HotMovies() {
                   <p className="line-clamp-3 text-white">{movie.description}</p>
                 </div>
               </div>
-              <div className="absolute bottom-24 left-14 hidden items-center gap-12 lg:flex">
+              <div className="absolute bottom-24 left-14 z-10 hidden items-center gap-12 lg:flex">
                 <div className="rounded-full bg-linear-to-r from-white to-yellow-400 p-4 shadow-lg/50 shadow-yellow-400 transition-all hover:text-white">
-                  <PlayIcon className="size-10" />
+                  <span className="relative flex size-10">
+                    <PlayIcon />
+                    <span className="absolute top-1/2 left-1/2 h-[115%] w-[115%] -translate-x-1/2 -translate-y-1/2 animate-ping rounded-full bg-yellow-200 opacity-75"></span>
+                  </span>
                 </div>
-                <div className="flex rounded-full border-2 border-gray-200/25 text-white">
-                  <div className="rounded-l-full border-r border-gray-200/25 px-4 py-3 transition-all hover:bg-yellow-200">
-                    <HeartIcon className="size-8" />
+                <div className="flex rounded-full border-2 border-gray-200/25">
+                  <div className="group relative rounded-l-full border-r border-gray-200/25 px-4 py-3">
+                    <HeartIcon className="size-8 fill-white" />
+                    <div className="absolute top-0 left-0 -z-10 origin-right scale-x-0 rounded-l-full bg-red-400 transition-all duration-300 ease-in-out group-hover:h-full group-hover:w-full group-hover:scale-x-100"></div>
                   </div>
-                  <div className="rounded-r-full border-l border-gray-200/25 px-4 py-3 transition-all hover:bg-yellow-200">
-                    <InformationCircleIcon className="size-8" />
+                  <div className="group relative rounded-r-full border-l border-gray-200/25 px-4 py-3">
+                    <InformationCircleIcon className="size-8 fill-white" />
+                    <div className="absolute top-0 left-0 -z-10 origin-left scale-x-0 rounded-r-full bg-red-400 transition-all duration-300 ease-in-out group-hover:h-full group-hover:w-full group-hover:scale-x-100"></div>
                   </div>
                 </div>
               </div>

@@ -48,7 +48,7 @@ export default function TopMovies({
                   </CardThumbnail>
                 </div>
                 <div className="mt-3 flex w-5/6 gap-4">
-                  <p className="bg-linear-to-t from-yellow-400 to-white bg-clip-text text-3xl font-bold text-transparent italic">
+                  <p className="bg-linear-to-t from-yellow-400 to-white bg-clip-text text-4xl font-bold text-transparent italic">
                     {idx + 1}
                   </p>
                   <div>

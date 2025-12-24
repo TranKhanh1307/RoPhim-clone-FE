@@ -1,8 +1,8 @@
 import { formatTime } from "@/utils/format";
 import { MOVIES } from "@/mocks/movies";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
-import { CardThumbnail, MovieCard, MovieName } from "../common/movie-card";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { CardThumbnail, MovieCard, MovieName } from "@/components/common/movie-card";
 
 export default function WatchedMovies() {
   return (

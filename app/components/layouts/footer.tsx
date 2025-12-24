@@ -1,5 +1,5 @@
 import { StarIcon } from "@heroicons/react/24/solid";
-import Logo from "../common/logo";
+import Logo from "@/components/common/logo";
 import {
   DiscordIcon,
   FacebookIcon,
@@ -8,7 +8,7 @@ import {
   TiktokIcon,
   TwitterIcon,
   YoutubeIcon,
-} from "../icons";
+} from "@/components/icons";
 
 export default function Footer() {
   return (

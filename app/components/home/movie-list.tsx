@@ -5,8 +5,15 @@ import {
   MovieName,
   ThumbBadges,
 } from "@/components/common/movie-card";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 import Title from "@/components/common/section-title";
+import AutoScroll from "embla-carousel-auto-scroll";
+import { useEffect, useState } from "react";
 
 export function MovieList({
   title,
@@ -14,19 +21,33 @@ export function MovieList({
   titleColor,
   movies,
   cardVariant = "vertical",
+  autoScrollDirection = "backward",
 }: {
   title: string;
   to: string;
   titleColor?: string;
   movies: Movie[];
   cardVariant?: "vertical" | "horizontal";
+  autoScrollDirection?: "backward" | "forward";
 }) {
   return (
     <section className="space-y-4">
       <Title to={to} titleColor={titleColor}>
         {title}
       </Title>
-      <Carousel>
+      <Carousel
+        opts={{ loop: true, align: "start" }}
+        plugins={[
+          AutoScroll({
+            direction: autoScrollDirection,
+            stopOnInteraction: false,
+            // stopOnMouseEnter: true,
+            startDelay: 3000,
+            playOnInit: true,
+            speed: 0.5,
+          }),
+        ]}
+      >
         <CarouselContent>
           {movies.map((movie) => (
             <CarouselItem className="basis-60" key={movie.id}>

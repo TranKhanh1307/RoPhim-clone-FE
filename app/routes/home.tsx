@@ -6,6 +6,7 @@ import TopMovies from "@/components/home/top-movies";
 import { MOVIES } from "@/mocks/movies";
 import { UpcomingMovies } from "@/components/home/upcoming-movies";
 import { MovieList } from "@/components/home/movie-list";
+import AnimeMovies from "@/components/home/anime-movies";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -35,6 +36,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
             titleColor="from-purple-500"
             movies={MOVIES}
             cardVariant="horizontal"
+            autoScrollDirection="forward"
           />
           <MovieList
             title="Phim Trung Quốc mới"
@@ -42,6 +44,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
             titleColor="from-yellow-500"
             movies={MOVIES}
             cardVariant="horizontal"
+            autoScrollDirection="backward"
           />
           <MovieList
             title="Phim US-UK mới"
@@ -49,17 +52,19 @@ export default function Home({ loaderData }: Route.ComponentProps) {
             titleColor="from-pink-500"
             movies={MOVIES}
             cardVariant="horizontal"
+            autoScrollDirection="forward"
           />
         </div>
         <TopMovies
           title={"Top 10 phim lẻ hôm nay"}
-          movies={MOVIES.slice(0, 5)}
+          movies={MOVIES.slice(0, 10)}
         />
         <MovieList
           title="Mãn Nhãn với Phim Chiếu Rạp"
           to="/us-uk"
           titleColor="from-white"
           movies={[...MOVIES].reverse()}
+          autoScrollDirection="forward"
         />
         <TopMovies
           title={"Top 10 phim bộ hôm nay"}
@@ -72,6 +77,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           movies={MOVIES}
           cardVariant="horizontal"
         />
+        <AnimeMovies />
       </div>
     </>
   );
