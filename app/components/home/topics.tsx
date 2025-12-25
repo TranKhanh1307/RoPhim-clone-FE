@@ -2,12 +2,18 @@ import { cn } from "@/utils/cn";
 import { Link } from "react-router";
 
 const TOPICS = [
-  { title: "Marvel", color: "bg-blue-400" },
-  { title: "4K", color: "bg-slate-400" },
-  { title: "Sitcom", color: "bg-green-400" },
-  { title: "Lồng Tiếng Cực Mạnh", color: "bg-purple-400" },
-  { title: "Xuyên Không", color: "bg-orange-400" },
-  { title: "Cổ Trang", color: "bg-red-400" },
+  { title: "Marvel", color: "bg-linear-to-r from-blue-400 to-blue-700" },
+  { title: "4K", color: "bg-linear-to-r from-pink-400 to-pink-700" },
+  { title: "Sitcom", color: "bg-linear-to-r from-green-400 to-green-700" },
+  {
+    title: "Lồng Tiếng Cực Mạnh",
+    color: "bg-linear-to-r from-purple-400 to-purple-700",
+  },
+  {
+    title: "Xuyên Không",
+    color: "bg-linear-to-r from-orange-400 to-orange-700",
+  },
+  { title: "Cổ Trang", color: "bg-linear-to-r from-red-400 to-red-700" },
 ];
 
 export default function Topics() {

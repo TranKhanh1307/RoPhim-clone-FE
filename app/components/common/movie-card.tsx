@@ -68,7 +68,7 @@ const CardThumbnail = memo(function CardThumbnail({
   return (
     <div
       className={cn(
-        "relative transition-transform duration-300 ease-in-out group-hover:scale-95 group-active:scale-95",
+        "relative transition-all duration-300 ease-in-out group-hover:scale-95 group-active:scale-95",
         v.imgHeight,
         className,
       )}
@@ -81,7 +81,6 @@ const CardThumbnail = memo(function CardThumbnail({
         loading="lazy"
         className="h-full w-full rounded-md object-cover object-center"
       />
-      <div className="absolute inset-0 rounded-md transition-colors duration-300 group-hover:bg-yellow-200/30 group-active:bg-yellow-200/30" />
       {children}
     </div>
   );
@@ -92,14 +91,32 @@ function ThumbBadges({
   isDubbed,
 }: Pick<Movie, "isSubbed" | "isDubbed">) {
   if (!isSubbed && !isDubbed) return null;
+  const baseStyle =
+    "w-fit rounded-tl-full rounded-tr-full rounded-b-full px-2 py-0.5 lg:rounded-b-none lg:py-2";
 
   return (
-    <div className="absolute bottom-2 left-2 space-y-1 text-xs text-white">
+    <div className="absolute bottom-2 left-2 flex flex-col gap-1 text-xs text-white lg:bottom-0 lg:left-4 lg:flex-row lg:gap-0">
       {isSubbed && (
-        <p className="w-fit rounded-full bg-gray-400 px-2 py-0.5">P.Đề</p>
+        <p
+          className={cn(
+            "bg-gray-400 lg:rounded-tl-sm lg:rounded-tr-none",
+            baseStyle,
+            !isDubbed && "lg:rounded-tr-sm",
+          )}
+        >
+          P.Đề
+        </p>
       )}
       {isDubbed && (
-        <p className="w-fit rounded-full bg-green-600 px-2 py-0.5">T.Minh</p>
+        <p
+          className={cn(
+            "bg-green-600 lg:rounded-tl-none lg:rounded-tr-sm",
+            baseStyle,
+            !isSubbed && "lg:rounded-tl-sm",
+          )}
+        >
+          T.Minh
+        </p>
       )}
     </div>
   );

@@ -37,7 +37,7 @@ function CarouselIndicators({
           onClick={() => scrollTo(idx)}
           className={cn(
             "h-10 w-10 cursor-pointer rounded-full border-4 border-gray-400 bg-cover bg-center transition-colors duration-300 ease-in-out hover:border-yellow-500 lg:h-14 lg:w-20 lg:rounded-md",
-            idx === current - 1 && "border-yellow-500",
+            idx === current && "border-yellow-500",
           )}
           style={{ backgroundImage: `url(${thumbnail})` }}
         ></div>
@@ -51,14 +51,16 @@ export function HotMovies() {
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
 
+  console.log(`hello ${current}`);
+
   useEffect(() => {
     if (!api) {
       return;
     }
     setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
+    setCurrent(api.selectedScrollSnap());
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
+      setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
 
@@ -71,15 +73,15 @@ export function HotMovies() {
       }}
       plugins={[
         Autoplay({
-          delay: 3000,
+          delay: 4000,
           stopOnInteraction: false,
         }),
         Fade(),
       ]}
     >
       <CarouselContent>
-        {hotMovies.map((movie) => (
-          <CarouselItem key={movie.id} className="pl-0">
+        {hotMovies.map((movie, idx) => (
+          <CarouselItem key={idx} className="pl-0">
             <Link
               to={`${movie.id}`}
               className="relative flex h-60 items-center justify-center after:absolute after:inset-0 after:bg-black/40 lg:h-144 lg:justify-start"
@@ -92,7 +94,12 @@ export function HotMovies() {
                 height={500}
                 loading="lazy"
               />
-              <div className="z-10 flex flex-col items-center gap-2 text-center lg:max-w-1/3 lg:-translate-y-16 lg:items-start lg:pl-10 lg:text-left">
+              <div
+                className={cn(
+                  "z-10 flex -translate-x-10 flex-col items-center gap-2 text-center opacity-0 transition-all duration-300 ease-in-out lg:max-w-1/3 lg:-translate-y-16 lg:items-start lg:pl-10 lg:text-left",
+                  current === idx && "translate-x-0 opacity-100",
+                )}
+              >
                 <p className="text-xl font-bold text-white">{movie.viName}</p>
                 <p className="text-yellow-300">{movie.enName}</p>
                 <div className="flex items-center gap-2 text-xs">
@@ -150,7 +157,10 @@ export function HotMovies() {
       </CarouselContent>
       <CarouselIndicators
         thumbnails={hotMovies.map((movie) => movie.thumbnail)}
-        scrollTo={(idx) => api?.scrollTo(idx)}
+        scrollTo={(idx) => {
+          api?.scrollTo(idx);
+          api?.reInit();
+        }}
         current={current}
       />
     </Carousel>

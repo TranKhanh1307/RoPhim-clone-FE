@@ -41,6 +41,7 @@ export default function TopMovies({
                     url={movie.thumbnail}
                     alt={movie.viName}
                   >
+                    <div className="absolute inset-0 rounded-md transition-all duration-300 ease-in-out group-hover:bg-yellow-200/30 group-active:bg-yellow-200/30" />
                     <ThumbBadges
                       isSubbed={movie.isSubbed}
                       isDubbed={movie.isDubbed}

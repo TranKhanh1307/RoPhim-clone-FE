@@ -1,8 +1,16 @@
 import { formatTime } from "@/utils/format";
 import { MOVIES } from "@/mocks/movies";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { CardThumbnail, MovieCard, MovieName } from "@/components/common/movie-card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import {
+  CardThumbnail,
+  MovieCard,
+  MovieName,
+} from "@/components/common/movie-card";
 
 export default function WatchedMovies() {
   return (
@@ -18,6 +26,7 @@ export default function WatchedMovies() {
                   alt={movie.viName}
                   className="h-72"
                 >
+                  <div className="absolute inset-0 rounded-md transition-all duration-300 ease-in-out group-hover:bg-black/30 group-active:bg-black/30" />
                   <XMarkIcon className="absolute top-2 right-2 size-6 rounded-md bg-white p-0.5" />
                 </CardThumbnail>
                 <Progress progress={(movie.timeWatched / movie.time) * 100} />

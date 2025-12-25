@@ -17,8 +17,8 @@ export default function Header() {
   const toggleSearchBar = () => setIsSearchBarShow(!isSearchBarShow);
 
   return (
-    <header className="relative">
-      <div className="flex min-h-18 items-center gap-4 bg-gray-400 p-3">
+    <header className="sticky top-0 z-50 bg-slate-900">
+      <div className="flex min-h-18 items-center gap-4 p-3">
         {!isSearchBarShow ? (
           <div className="flex w-full items-center gap-4">
             {isMenuShow ? (
@@ -92,12 +92,12 @@ function SearchBar() {
 }
 
 const NAVIGATIONS = [
-  { name: "Phim Lẻ", href: "/" },
-  { name: "Phim Bộ", href: "/series" },
-  { name: "Thể Loại", href: "/categories" },
-  { name: "Quốc Gia", href: "/countries" },
-  { name: "Xem Chung", href: "/watch-together" },
-  { name: "Thêm", href: "/more" },
+  { name: "Phim Lẻ", href: "/categories/standalone" },
+  { name: "Phim Bộ", href: "/categories/series" },
+  { name: "Thể Loại", href: "/categories/category" },
+  { name: "Quốc Gia", href: "/categories/country" },
+  { name: "Xem Chung", href: "/categories/watch-together" },
+  { name: "Thêm", href: "/categories/more" },
 ];
 
 function NavBar() {

@@ -14,19 +14,22 @@ export default function Title({
   titleColor?: string;
 }) {
   return (
-    <div className={cn("flex items-center justify-between", className)}>
-      <Link
-        to={to}
+    <div className={cn("flex lg:flex-col justify-between", className)}>
+      <h2
         className={cn(
-          "bg-linear-to-r via-white to-white bg-clip-text text-2xl font-extrabold text-transparent",
+          "bg-linear-to-r to-white bg-clip-text text-2xl font-bold text-transparent",
           titleColor,
         )}
       >
         {children}
+      </h2>
+      <Link
+        to={to}
+        className="flex items-center gap-1 fill-white text-white hover:fill-yellow-200 hover:text-yellow-200 active:fill-yellow-200 active:text-yellow-200"
+      >
+        <span className="hidden lg:inline">Xem toàn bộ</span>
+        <ChevronRightIcon className="size-4" />
       </Link>
-      <div className="rounded-full p-1 outline outline-white transition-colors duration-300 ease-in-out hover:fill-yellow-400">
-        <ChevronRightIcon className="size-5 fill-white" />
-      </div>
     </div>
   );
 }

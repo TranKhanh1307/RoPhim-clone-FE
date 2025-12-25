@@ -9,11 +9,9 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  type CarouselApi,
 } from "@/components/ui/carousel";
 import Title from "@/components/common/section-title";
 import AutoScroll from "embla-carousel-auto-scroll";
-import { useEffect, useState } from "react";
 
 export function MovieList({
   title,
@@ -31,22 +29,23 @@ export function MovieList({
   autoScrollDirection?: "backward" | "forward";
 }) {
   return (
-    <section className="space-y-4">
-      <Title to={to} titleColor={titleColor}>
+    <section className="items-center space-y-4 lg:flex">
+      <Title to={to} titleColor={titleColor} className="lg:mr-6 lg:flex-1/5">
         {title}
       </Title>
       <Carousel
+        className="overflow-hidden"
         opts={{ loop: true, align: "start" }}
-        plugins={[
-          AutoScroll({
-            direction: autoScrollDirection,
-            stopOnInteraction: false,
-            // stopOnMouseEnter: true,
-            startDelay: 3000,
-            playOnInit: true,
-            speed: 0.5,
-          }),
-        ]}
+        // plugins={[
+        //   AutoScroll({
+        //     direction: autoScrollDirection,
+        //     stopOnInteraction: false,
+        //     // stopOnMouseEnter: true,
+        //     startDelay: 3000,
+        //     playOnInit: true,
+        //     speed: 0.5,
+        //   }),
+        // ]}
       >
         <CarouselContent>
           {movies.map((movie) => (
@@ -57,6 +56,7 @@ export function MovieList({
                   alt={movie.viName}
                   variant={cardVariant}
                 >
+                  <div className="absolute inset-0 rounded-md transition-all duration-300 ease-in-out group-hover:bg-black/30 group-active:bg-black/30" />
                   <ThumbBadges
                     isSubbed={movie.isSubbed}
                     isDubbed={movie.isDubbed}
