@@ -42,6 +42,7 @@ export function UpcomingMovies({
                   alt={movie.viName}
                   variant={cardVariant}
                 >
+                  <div className="absolute inset-0 rounded-md transition-all duration-300 ease-in-out group-hover:bg-black/30 group-active:bg-black/30" />
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 rounded-t-md bg-white p-2 text-xs font-bold">
                     Sắp chiếu
                   </div>
