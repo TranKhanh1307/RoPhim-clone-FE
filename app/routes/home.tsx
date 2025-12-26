@@ -26,7 +26,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
   return (
     <>
       <HotMovies />
-      <div className="mx-auto max-w-[1900px] space-y-8">
+      <div className="mx-auto max-w-[1800px] space-y-8">
         <Topics />
         <WatchedMovies />
         <div className="space-y-4 rounded-t-md bg-linear-to-t via-slate-400/25 via-75% to-slate-400/25 py-4">
@@ -60,6 +60,8 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           movies={MOVIES.slice(0, 10)}
         />
         <MovieList
+          cardVariant="horizontal"
+          className="lg:block"
           title="Mãn Nhãn với Phim Chiếu Rạp"
           to="/us-uk"
           titleColor="from-white"

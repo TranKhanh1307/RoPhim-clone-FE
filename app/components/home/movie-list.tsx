@@ -12,8 +12,10 @@ import {
 } from "@/components/ui/carousel";
 import Title from "@/components/common/section-title";
 import AutoScroll from "embla-carousel-auto-scroll";
+import { cn } from "@/utils/cn";
 
 export function MovieList({
+  className,
   title,
   to,
   titleColor,
@@ -27,29 +29,33 @@ export function MovieList({
   movies: Movie[];
   cardVariant?: "vertical" | "horizontal";
   autoScrollDirection?: "backward" | "forward";
+  className?: string;
 }) {
   return (
-    <section className="items-center space-y-4 lg:flex">
-      <Title to={to} titleColor={titleColor} className="lg:mr-6 lg:flex-1/5">
+    <section className={cn("space-y-2 lg:flex lg:gap-8", className)}>
+      <Title to={to} titleColor={titleColor} className="flex-1">
         {title}
       </Title>
       <Carousel
-        className="overflow-hidden"
+        className="flex-6"
         opts={{ loop: true, align: "start" }}
-        // plugins={[
-        //   AutoScroll({
-        //     direction: autoScrollDirection,
-        //     stopOnInteraction: false,
-        //     // stopOnMouseEnter: true,
-        //     startDelay: 3000,
-        //     playOnInit: true,
-        //     speed: 0.5,
-        //   }),
-        // ]}
+        plugins={[
+          AutoScroll({
+            direction: autoScrollDirection,
+            stopOnInteraction: false,
+            // stopOnMouseEnter: true,
+            startDelay: 3000,
+            playOnInit: true,
+            speed: 0.5,
+          }),
+        ]}
       >
         <CarouselContent>
           {movies.map((movie) => (
-            <CarouselItem className="basis-60" key={movie.id}>
+            <CarouselItem
+              className="basis-1/2 md:basis-1/3 lg:basis-1/5"
+              key={movie.id}
+            >
               <MovieCard movie={movie}>
                 <CardThumbnail
                   url={movie.thumbnail}
@@ -62,8 +68,10 @@ export function MovieList({
                     isDubbed={movie.isDubbed}
                   />
                 </CardThumbnail>
-                <MovieName>{movie.viName}</MovieName>
-                <MovieName className="text-gray-400">{movie.enName}</MovieName>
+                <MovieName className="lg:text-left">{movie.viName}</MovieName>
+                <MovieName className="text-gray-400 lg:text-left">
+                  {movie.enName}
+                </MovieName>
               </MovieCard>
             </CarouselItem>
           ))}

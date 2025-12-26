@@ -4,7 +4,11 @@ import {
   MovieCard,
   MovieName,
 } from "@/components/common/movie-card";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import Title from "@/components/common/section-title";
 
 export function UpcomingMovies({
@@ -28,7 +32,10 @@ export function UpcomingMovies({
       <Carousel>
         <CarouselContent>
           {movies.map((movie) => (
-            <CarouselItem className="basis-60" key={movie.id}>
+            <CarouselItem
+              className="basis-1/2 lg:basis-1/3 xl:basis-1/6"
+              key={movie.id}
+            >
               <MovieCard movie={movie}>
                 <CardThumbnail
                   url={movie.thumbnail}

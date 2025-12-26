@@ -25,19 +25,19 @@ export default function TopMovies({
       <Carousel>
         <CarouselContent>
           {movies.map((movie, idx) => (
-            <CarouselItem className="basis-85" key={movie.id}>
+            <CarouselItem
+              className="basis-full sm:basis-1/3 lg:basis-1/4 xl:basis-1/6"
+              key={movie.id}
+            >
               <MovieCard movie={movie}>
                 <div
                   className={cn(
-                    "h-136 bg-yellow-200",
+                    "bg-yellow-200",
                     idx % 2 === 0 ? "clip-right" : "clip-left",
                   )}
                 >
                   <CardThumbnail
-                    className={cn(
-                      "h-full",
-                      idx % 2 === 0 ? "clip-right" : "clip-left",
-                    )}
+                    className={cn(idx % 2 === 0 ? "clip-right" : "clip-left")}
                     url={movie.thumbnail}
                     alt={movie.viName}
                   >

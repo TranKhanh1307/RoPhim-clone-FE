@@ -7,14 +7,10 @@ type MovieCardVariant = "vertical" | "horizontal";
 
 const VARIANT_STYLES = {
   vertical: {
-    imgHeight: "h-80",
-    width: 208,
-    height: 320,
+    aspect: "aspect-[2/3]",
   },
   horizontal: {
-    imgHeight: "h-40",
-    width: 352,
-    height: 128,
+    aspect: "aspect-[3/2]",
   },
 } as const;
 
@@ -68,18 +64,15 @@ const CardThumbnail = memo(function CardThumbnail({
   return (
     <div
       className={cn(
-        "relative transition-all duration-300 ease-in-out group-hover:scale-95 group-active:scale-95",
-        v.imgHeight,
+        "relative rounded-md transition-all duration-300 ease-in-out group-hover:scale-95 group-active:scale-95",
         className,
       )}
     >
       <img
         src={url}
         alt={alt}
-        width={v.width}
-        height={v.height}
         loading="lazy"
-        className="h-full w-full rounded-md object-cover object-center"
+        className={cn("h-full w-full rounded-md object-cover object-center", v.aspect)}
       />
       {children}
     </div>

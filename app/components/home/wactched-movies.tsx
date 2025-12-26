@@ -19,13 +19,12 @@ export default function WatchedMovies() {
       <Carousel className="gap-4">
         <CarouselContent>
           {MOVIES.map((movie) => (
-            <CarouselItem className="basis-48" key={movie.id}>
+            <CarouselItem
+              className="basis-1/2 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5 2xl:basis-1/6"
+              key={movie.id}
+            >
               <MovieCard movie={movie}>
-                <CardThumbnail
-                  url={movie.thumbnail}
-                  alt={movie.viName}
-                  className="h-72"
-                >
+                <CardThumbnail url={movie.thumbnail} alt={movie.viName}>
                   <div className="absolute inset-0 rounded-md transition-all duration-300 ease-in-out group-hover:bg-black/30 group-active:bg-black/30" />
                   <XMarkIcon className="absolute top-2 right-2 size-6 rounded-md bg-white p-0.5" />
                 </CardThumbnail>
