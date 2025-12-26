@@ -13,6 +13,7 @@ import {
 import Title from "@/components/common/section-title";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { cn } from "@/utils/cn";
+import { useMemo } from "react";
 
 export function MovieList({
   className,
@@ -31,6 +32,19 @@ export function MovieList({
   autoScrollDirection?: "backward" | "forward";
   className?: string;
 }) {
+  const plugins = useMemo(
+    () => [
+      AutoScroll({
+        direction: autoScrollDirection,
+        stopOnInteraction: false,
+        // stopOnMouseEnter: true,
+        startDelay: 3000,
+        playOnInit: true,
+        speed: 0.5,
+      }),
+    ],
+    [autoScrollDirection],
+  );
   return (
     <section className={cn("space-y-2 lg:flex lg:gap-8", className)}>
       <Title to={to} titleColor={titleColor} className="flex-1">
@@ -39,16 +53,7 @@ export function MovieList({
       <Carousel
         className="flex-6"
         opts={{ loop: true, align: "start" }}
-        plugins={[
-          AutoScroll({
-            direction: autoScrollDirection,
-            stopOnInteraction: false,
-            // stopOnMouseEnter: true,
-            startDelay: 3000,
-            playOnInit: true,
-            speed: 0.5,
-          }),
-        ]}
+        plugins={plugins}
       >
         <CarouselContent>
           {movies.map((movie) => (
@@ -62,7 +67,7 @@ export function MovieList({
                   alt={movie.viName}
                   variant={cardVariant}
                 >
-                  <div className="absolute inset-0 rounded-md transition-all duration-300 ease-in-out group-hover:bg-black/30 group-active:bg-black/30" />
+                  <div className="thumb-overlay" />
                   <ThumbBadges
                     isSubbed={movie.isSubbed}
                     isDubbed={movie.isDubbed}

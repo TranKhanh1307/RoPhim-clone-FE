@@ -49,15 +49,11 @@ function CarouselIndicators({
 export function HotMovies() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
-
-  console.log(`hello ${current}`);
 
   useEffect(() => {
     if (!api) {
       return;
     }
-    setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap());
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap());
@@ -123,7 +119,7 @@ export function HotMovies() {
                   {movie.categories.map((category, idx) => (
                     <p
                       key={idx}
-                      className="rounded-md border border-white bg-white/10 p-2 text-white"
+                      className="tag"
                     >
                       {category}
                     </p>
@@ -159,7 +155,6 @@ export function HotMovies() {
         thumbnails={hotMovies.map((movie) => movie.thumbnail)}
         scrollTo={(idx) => {
           api?.scrollTo(idx);
-          api?.reInit();
         }}
         current={current}
       />

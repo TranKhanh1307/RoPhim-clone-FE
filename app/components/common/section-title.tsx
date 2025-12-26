@@ -22,7 +22,7 @@ export default function Title({
     >
       <h2
         className={cn(
-          "grow bg-linear-to-r via-white to-white bg-clip-text text-2xl font-bold text-transparent lg:grow-0",
+          "grow title-gradient text-2xl font-bold lg:grow-0",
           titleColor,
         )}
       >
@@ -30,7 +30,7 @@ export default function Title({
       </h2>
       <Link
         to={to}
-        className="flex items-center gap-1 fill-white text-white hover:fill-yellow-200 hover:text-yellow-200 active:fill-yellow-200 active:text-yellow-200"
+        className="link-cta"
       >
         <p className="hidden lg:block">Xem toàn bộ</p>
         <ChevronRightIcon className="size-4" />

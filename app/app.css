@@ -252,3 +252,30 @@ body {
     5.761% 100%
   );
 }
+
+@layer components {
+  /* CTA link style reused in section headers */
+  .link-cta {
+    @apply flex items-center gap-1 fill-white text-white hover:fill-yellow-200 hover:text-yellow-200 active:fill-yellow-200 active:text-yellow-200;
+  }
+
+  /* Gradient text utility for titles */
+  .title-gradient {
+    @apply bg-linear-to-r via-white to-white bg-clip-text text-transparent;
+  }
+
+  /* Common thumbnail overlay used on hover/active */
+  .thumb-overlay {
+    @apply absolute inset-0 rounded-md transition-all duration-300 ease-in-out group-hover:bg-black/30 group-active:bg-black/30;
+  }
+
+  /* Generic tag/pill used for categories */
+  .tag {
+    @apply rounded-md border border-white bg-white/10 p-2 text-white;
+  }
+
+  /* Pill badge base used in thumbnail badges */
+  .badge-pill {
+    @apply w-fit rounded-tl-full rounded-tr-full rounded-b-full px-2 py-0.5 lg:rounded-b-none lg:py-2;
+  }
+}

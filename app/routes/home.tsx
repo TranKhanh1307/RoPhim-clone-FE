@@ -7,6 +7,7 @@ import { MOVIES } from "@/mocks/movies";
 import { UpcomingMovies } from "@/components/home/upcoming-movies";
 import { MovieList } from "@/components/home/movie-list";
 import AnimeMovies from "@/components/home/anime-movies";
+import { useMemo } from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -15,14 +16,10 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export async function clientLoader() {
-  // const res = await fetch("https://api.example.com");
-  // const movies = await res.json();
-  // return movies;
-  // return { movies: [] };
-}
-
-export default function Home({ loaderData }: Route.ComponentProps) {
+export default function Home({ loaderData: _loaderData }: Route.ComponentProps) {
+  const top10 = useMemo(() => MOVIES.slice(0, 10), []);
+  const top10Reverse = useMemo(() => [...top10].reverse(), [top10]);
+  const reversedMovies = useMemo(() => [...MOVIES].reverse(), []);
   return (
     <>
       <HotMovies />
@@ -42,7 +39,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
             title="Phim Trung Quốc mới"
             to="/china"
             titleColor="from-yellow-500"
-            movies={MOVIES}
+            movies={ MOVIES}
             cardVariant="horizontal"
             autoScrollDirection="backward"
           />
@@ -50,33 +47,27 @@ export default function Home({ loaderData }: Route.ComponentProps) {
             title="Phim US-UK mới"
             to="/us-uk"
             titleColor="from-pink-500"
-            movies={MOVIES}
+            movies={ MOVIES}
             cardVariant="horizontal"
             autoScrollDirection="forward"
           />
         </div>
-        <TopMovies
-          title={"Top 10 phim lẻ hôm nay"}
-          movies={MOVIES.slice(0, 10)}
-        />
+        <TopMovies title={"Top 10 phim lẻ hôm nay"} movies={top10} />
         <MovieList
           cardVariant="horizontal"
           className="lg:block"
           title="Mãn Nhãn với Phim Chiếu Rạp"
           to="/us-uk"
           titleColor="from-white"
-          movies={[...MOVIES].reverse()}
+          movies={reversedMovies}
           autoScrollDirection="forward"
         />
-        <TopMovies
-          title={"Top 10 phim bộ hôm nay"}
-          movies={MOVIES.slice(0, 10).reverse()}
-        />
+        <TopMovies title={"Top 10 phim bộ hôm nay"} movies={top10Reverse} />
         <UpcomingMovies
           title="Phim Sắp Tới Trên Rổ"
           to="/upcoming"
           titleColor="from-white"
-          movies={MOVIES}
+          movies={ MOVIES}
           cardVariant="horizontal"
         />
         <AnimeMovies />
